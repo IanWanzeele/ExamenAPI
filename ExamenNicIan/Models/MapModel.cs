@@ -2,7 +2,7 @@
 {
     public class MapModel
     {
-        public string MapId { get; set; }
+        public string MapId { get;  }
 
         public MapModel(string mapId)
         {

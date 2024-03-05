@@ -14,7 +14,7 @@ function search() {
 
 function GetMap() {
     //Testcode
-    console.log("Initialising map");
+    /*console.log("Initialising map");*/
     // Add Map Control JavaScript code here.
     // Instantiate a map object
     var map = new atlas.Map("myMap", {
@@ -27,14 +27,14 @@ function GetMap() {
         }
     });
 
-    console.log("Mapobject created", map);
+    //console.log("Mapobject created", map);
     // Wait until the map resources are ready.
     map.events.add('ready', function () {
-        console.log("Map resources are ready.");
+        //console.log("Map resources are ready.");
         // Create a data source and add it to the map.
         var datasource = new atlas.source.DataSource();
         map.sources.add(datasource);
-        console.log("Data source created:", datasource);
+        //console.log("Data source created:", datasource);
 
         // Add a layer for rendering point data.
         var resultLayer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -49,7 +49,7 @@ function GetMap() {
         });
 
         map.layers.add(resultLayer);
-        console.log("Result layer added:", resultLayer);
+        //console.log("Result layer added:", resultLayer);
         // Use MapControlCredential to share authentication between a map control and the service module.
         var pipeline = atlas.service.MapsURL.newPipeline(new atlas.service.MapControlCredential(map));
         // Construct the SearchURL object
@@ -69,10 +69,10 @@ function GetMap() {
             view: 'Auto'
         }).then((results) => {
             // Extract GeoJSON feature collection from the response and add it to the datasource
-            console.log("Search results:", results);
-            //var data = results.geojson.getFeatures();
-            var data = results.geojson && typeof results.geojson.getFeatures === 'function' ? results.geojson.getFeatures() : null;
-            console.log("Extracted Data:", data);
+            //console.log("Search results:", results);
+            var data = results.geojson.getFeatures();
+            //var data = results.geojson && typeof results.geojson.getFeatures === 'function' ? results.geojson.getFeatures() : null;
+            //console.log("Extracted Data:", data);
             datasource.add(data);
             // Set camera to bounds to show the results
             map.setCamera({
