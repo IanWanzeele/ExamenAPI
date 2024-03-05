@@ -7,6 +7,9 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="~/css/maps.css"> <!-- Add your custom CSS file -->
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script> 
+
 </head>
 <body onload="GetMap()">
 <div class="search-container">
@@ -15,7 +18,7 @@
 </div>
 <div id="@Model.MapId"></div>
 
-<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script> <!-- Add Azure Maps JavaScript -->
+ <!-- Add Azure Maps JavaScript -->
 <script src="~/js/map.js"></script> <!-- Add your custom JavaScript file -->
 </body>
 </html>>
