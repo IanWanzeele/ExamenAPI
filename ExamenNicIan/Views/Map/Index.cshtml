@@ -1,0 +1,21 @@
+﻿@model ExamenNicIan.Models.MapModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Search</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/css/maps.css"> <!-- Add your custom CSS file -->
+</head>
+<body onload="GetMap()">
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search.." name="search">
+    <button onclick="search()">Search</button>
+</div>
+<div id="@Model.MapId"></div>
+
+<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script> <!-- Add Azure Maps JavaScript -->
+<script src="~/js/map.js"></script> <!-- Add your custom JavaScript file -->
+</body>
+</html>>

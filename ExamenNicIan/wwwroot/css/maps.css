@@ -1,0 +1,52 @@
+﻿/* styles.css */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#myMap {
+    width: 100%;
+    height: 80%;
+}
+
+.search-container {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+}
+
+    .search-container input[type=text] {
+        width: 70%;
+        padding: 10px;
+        margin: 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        display: inline-block;
+    }
+
+    .search-container button {
+        width: 20%;
+        padding: 10px;
+        margin: 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        display: inline-block;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+@media screen and (max-width: 600px) {
+    .search-container input[type=text] {
+        width: 50%;
+    }
+
+    .search-container button {
+        width: 30%;
+    }
+}

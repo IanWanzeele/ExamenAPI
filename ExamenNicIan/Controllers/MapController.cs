@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ExamenNicIan.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ExamenNicIan.Controllers
 {
-    public class MapController
+    public class MapController :Controller
     {
         public IActionResult Index()
         {
