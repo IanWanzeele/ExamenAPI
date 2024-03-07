@@ -1,7 +1,7 @@
 ﻿function GetMap() {
     var map = new atlas.Map("myMap", {
-        center: [50.10789, 4.4764595],
-        zoom: 10,
+        center: [4.3517, 50.5503],
+        zoom: 7,
         view: 'Auto',
         authOptions: {
             authType: 'subscriptionKey',
@@ -9,21 +9,20 @@
         }
     });
 
+    // Wait for the map to be ready
     map.events.add('ready', function () {
-        var datasource = new atlas.source.DataSource();
-        map.sources.add(datasource);
-
-        var resultLayer = new atlas.layer.SymbolLayer(datasource, null, {
-            iconOptions: {
-                image: 'pin-round-darkblue',
-                anchor: 'center',
-                allowOverlap: true
-            },
-            textOptions: {
-                anchor: "top"
-            }
+        // Remove hidden elements
+        var hiddenElements = document.querySelectorAll('.hidden-accessible-element');
+        hiddenElements.forEach(function (element) {
+            element.parentNode.removeChild(element);
         });
 
-        map.layers.add(resultLayer);
+        // Remove atlas-control-container element
+        var controlContainer = document.querySelector('.atlas-control-container');
+        if (controlContainer) {
+            controlContainer.parentNode.removeChild(controlContainer);
+        }
     });
 }
+
+window.onload = GetMap;
