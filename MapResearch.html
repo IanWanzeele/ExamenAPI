@@ -44,18 +44,14 @@
             });
 
         map.layers.add(resultLayer);
-        //Use MapControlCredential to share authentication between a map control and the service module.
-        var pipeline = atlas.service.MapsURL.newPipeline(new atlas.service.MapControlCredential(map));
-        // Construct the SearchURL object
-        var searchURL = new atlas.service.SearchURL(pipeline);
-        
-        //Kan zoeken naar wat je wilt, nu hard coded nog
-        var query = 'restaurants';
-        var radius = 9000;
-        var lat = 47.64452336193245;
-        var lon = -122.13687658309935;
+       
+       
 
-        searchURL.searchPOI(atlas.service.Aborter.timeout(10000), query, {
+
+        
+
+
+        /*searchURL.searchPOI(atlas.service.Aborter.timeout(10000), query, {
             limit: 10,
             lat: lat,
             lon: lon,
@@ -70,9 +66,9 @@
                     bounds: data.bbox,
                     zoom: 10,
                     padding: 15
-                });
+                });*/
 
-        });
+       // });
         
     });
     }

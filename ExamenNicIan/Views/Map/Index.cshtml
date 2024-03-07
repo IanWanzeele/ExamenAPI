@@ -1,20 +1,19 @@
-﻿@model ExamenNicIan.Models.MapModel
+﻿@{
+    ViewBag.Title = "Map Search";
+}
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Map Search</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="~/css/maps.css"> <!-- Add your custom CSS file -->
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
-    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script> 
-
+    <link rel="stylesheet" href="~/css/maps.css" type="text/css" />
 </head>
 <body onload="GetMap()">
-<div id="@Model.MapId"></div>
+<div id="myMap"></div>
 
- <!-- Add Azure Maps JavaScript -->
-<script src="~/js/map.js"></script> <!-- Add your custom JavaScript file -->
+<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
+<script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
+<script src="~/js/map.js"></script>
 </body>
 </html>
