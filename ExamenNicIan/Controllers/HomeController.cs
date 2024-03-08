@@ -33,5 +33,6 @@ namespace ExamenNicIan.Controllers
         {
             return View();
         }
+
     }
 }
