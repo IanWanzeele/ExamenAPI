@@ -8,67 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
-    <style>
-        .search-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 50px;
-        }
-
-        .search-input {
-            padding: 10px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            width: 300px;
-            margin-right: 10px;
-            font-size: 16px;
-        }
-
-        .search-button {
-            padding: 10px 20px;
-            background-color: red; 
-            border: none;
-            border-radius: 50%; 
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-            font-size: 0;
-        }
-
-        /* Stijlen voor de zijstroken */
-        .left-stripe, .right-stripe {
-            width: 200px;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            z-index: -1;
-        }
-
-        .left-stripe {
-            left: 0;
-            background-color: orange; 
-        }
-
-        .right-stripe {
-            right: 0;
-            background-color: orange; 
-
-        
-        }
-
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-         .logo-container img 
-            {
-                max-width: 100%; 
-                height: auto;
-            }
-    </style>
+    <link rel="stylesheet" href="~/css/site.css" />
+   
 </head>
 <body>
 <div class="left-stripe"></div>
@@ -85,8 +26,12 @@
     <button class="search-button">Search</button>
 </div>
 
-<div class="introduction">
-    <p>Welcome to Food-ix, the place to be when your are hungry! </p>
+<div class="introduction stylish-p-text">
+    <p>Welcome to Food-ix, the place to be when you are hungry!</p>
+    <p>Just type in the area code of your choice and find new spots to eat.</p>
+    <p>You can add food-locations you like to your favorites to easier access them later.</p>
+    <p>So start browsing and fix that craving!</p>
+
 </div>
 
     
