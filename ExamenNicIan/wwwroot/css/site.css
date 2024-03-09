@@ -20,3 +20,90 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.search-input {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: red;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    font-size: 0;
+}
+
+
+.left-stripe, .right-stripe {
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+}
+
+.left-stripe {
+    left: 0;
+    background-color: orange;
+}
+
+.right-stripe {
+    right: 0;
+    background-color: orange;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+.stylish-nav-text {
+    color: #d60000 !important;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 1.4em;
+    margin-left: 32px;
+}
+
+.stylish-p-text {
+    color: #d60000 !important;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    letter-spacing: 1px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.footer {
+    color: #d60000 !important;
+    margin-top: 40px;
+    margin-left: 21px;
+
+}
+

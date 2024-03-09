@@ -7,14 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\logo.png" />
     <None Remove="Resources\search.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="NewFolder\" />
+    <Folder Include="wwwroot\NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\logo.png" />
     <Resource Include="Resources\search.png" />
   </ItemGroup>
 
