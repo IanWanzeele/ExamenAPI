@@ -62,7 +62,7 @@ function initializeMap(latitude, longitude) {
 function sendLocationAjax(latitude, longitude) {
     // Send AJAX request to HomeController action with latitude and longitude parameters
     $.ajax({
-        url: '/Home/GetRestaurant',
+        url: '/Restaurants/GetRestaurantFromApi',
         method: 'GET',
         data: { latitude: latitude, longitude: longitude },
         success: function (response) {
