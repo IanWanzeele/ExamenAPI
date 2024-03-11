@@ -8,70 +8,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
-    <style>
-        /* Stijlen voor de zoekbalk en knop */
-        .search-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 50px;
-        }
-
-        .search-input {
-            padding: 10px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            width: 300px;
-            margin-right: 10px;
-            font-size: 16px;
-        }
-
-        .search-button {
-            padding: 10px 20px;
-            background-image: url('C:\Users\nicol\Source\Repos\ExamenAPI\ExamenNicIan\Resources\search.png');
-            background-size: contain; /* Zorgt ervoor dat de afbeelding binnen de knop past */
-            background-repeat: no-repeat; /* Voorkomt herhaling van de afbeelding */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 30px; /* Pas de breedte van de knop aan aan de breedte van de afbeelding */
-            height: 30px; /* Pas de hoogte van de knop aan aan de hoogte van de afbeelding */
-            font-size: 0; /* Verberg de tekst binnen de knop */
-        }
-
-        /* Stijlen voor de zijstroken */
-        .left-stripe, .right-stripe {
-            width: 200px;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            z-index: -1;
-        }
-
-        .left-stripe {
-            left: 0;
-            background-color: orange; /* Oranje kleur */
-        }
-
-        .right-stripe {
-            right: 0;
-            background-color: orange; 
-        }
-    </style>
+    <link rel="stylesheet" href="~/css/site.css" />
+   
 </head>
 <body>
 <div class="left-stripe"></div>
 <div class="right-stripe"></div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="logo-container">
+    <img src="Resources/logo.png" alt="Logo"> 
 </div>
+</body>
 
 <!-- Zoekbalk en knop -->
 <div class="search-container">
     <input type="text" class="search-input" placeholder="Search...">
     <button class="search-button">Search</button>
 </div>
-</body>
+
+<div class="introduction stylish-p-text">
+    <p>Welcome to Food-ix, the place to be when you are hungry!</p>
+    <p>Just type in the area code of your choice and find new spots to eat.</p>
+    <p>You can add food-locations you like to your favorites to easier access them later.</p>
+    <p>So start browsing and fix that craving!</p>
+
+</div>
+
+    
 </html>

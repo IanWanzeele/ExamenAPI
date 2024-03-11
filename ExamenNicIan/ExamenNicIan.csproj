@@ -7,18 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\logo.png" />
     <None Remove="Resources\search.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="NewFolder\" />
+    <Folder Include="wwwroot\NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>
+
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
+
+    <Resource Include="Resources\logo.png" />
+
     <Resource Include="Resources\search.png" />
   </ItemGroup>
 
