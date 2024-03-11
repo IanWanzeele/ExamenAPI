@@ -10,4 +10,5 @@ body {
     width: 50%; /* Set the width to occupy 50% of the window's width */
     height: calc(60vh - 20px); /* Calculate the height to occupy 100% of the window's height minus 20 pixels */
     max-height: 100%; /* Set the maximum height to 100% of the window's height */
+    float: right;
 }

@@ -1,5 +1,7 @@
-﻿@{
+﻿@model List<Restaurant>
+@{
     ViewBag.Title = "Map Search";
+
 }
 
 <!DOCTYPE html>
@@ -11,6 +13,15 @@
 </head>
 <body onload="GetMap()">
 <div id="myMap"></div>
+
+<h1>Restaurants Nearby!</h1>
+@foreach (var restaurant in Model)
+{
+    <div class="col-4">
+        <partial name="RestaurantPartialCards" model="restaurant"/>
+    </div>
+}
+
 
 <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
 <script src="~/js/map.js"></script>

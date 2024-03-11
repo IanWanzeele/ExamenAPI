@@ -6,11 +6,15 @@ namespace ExamenNicIan.Controllers
 {
     public class RestaurantsController : Controller
     {
-        [HttpGet]
-        public async Task<IActionResult> Index([FromForm]double latitude, [FromForm] double longitude)
+        [HttpGet, HttpPost]
+        public async Task<IActionResult> Index([FromBody]double latitude, [FromBody] double longitude)
         {
             // Make API call to retrieve restaurant data based on latitude and longitude
             var restaurants = await GetRestaurantsFromApi(latitude, longitude);
+            if (restaurants != null)
+            {
+                return RedirectToAction("Index", "Map",restaurants);
+            }
 
             // Pass the list of restaurants to the view
             return View(restaurants);

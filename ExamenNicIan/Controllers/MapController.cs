@@ -5,9 +5,9 @@ namespace ExamenNicIan.Controllers
 {
     public class MapController :Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(List<Restaurant> restaurants)
         {
-            return View();
+            return View(restaurants);
         }
     }
 }
