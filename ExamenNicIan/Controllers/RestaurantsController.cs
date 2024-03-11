@@ -18,7 +18,9 @@ namespace ExamenNicIan.Controllers
 
         private async Task<List<Restaurant>> GetRestaurantsFromApi(double latitude, double longitude)
         {
+
             // Initialize the HttpClient
+            
             using (var httpClient = new HttpClient())
             {
                 try
