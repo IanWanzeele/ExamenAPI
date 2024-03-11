@@ -3,8 +3,8 @@
 <div class="card" style="width: 18rem;">
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
-        <h5 class="card-title">@Model.Name</h5>
-        <p class="card-text">@Model.Cuisine</p>
+        <h5 class="card-title">@Model.elements[0].tags.name</h5>
+        <p class="card-text">@Model.elements[0].tags.description</p>
         <a href="#" class="btn btn-primary">Discover</a>
     </div>
 </div>

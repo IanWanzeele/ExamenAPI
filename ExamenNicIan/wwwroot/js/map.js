@@ -67,7 +67,8 @@ function sendLocationAjax(latitude, longitude) {
     $.ajax({
         url: '/Restaurants/Index',
         method: 'POST',
-        data: { latitude: latitude, longitude: longitude },
+        contentType: 'application/json',
+        data: JSON.stringify({ latitude: latitude, longitude: longitude }),
         success: function (response) {
             console.log('Location processed successfully:', response);
         },

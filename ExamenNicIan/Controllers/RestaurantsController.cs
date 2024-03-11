@@ -7,13 +7,13 @@ namespace ExamenNicIan.Controllers
     public class RestaurantsController : Controller
     {
         [HttpGet, HttpPost]
-        public async Task<IActionResult> Index([FromBody]double latitude, [FromBody] double longitude)
+        public async Task<IActionResult> Index([FromBody] Location model)
         {
             // Make API call to retrieve restaurant data based on latitude and longitude
-            var restaurants = await GetRestaurantsFromApi(latitude, longitude);
+            var restaurants = await GetRestaurantsFromApi(model.Latitude, model.Longitude);
             if (restaurants != null)
             {
-                return RedirectToAction("Index", "Map",restaurants);
+                return RedirectToAction("Index", "Restaurants",restaurants);
             }
 
             // Pass the list of restaurants to the view
@@ -30,7 +30,9 @@ namespace ExamenNicIan.Controllers
                 try
                 {
                     // Construct the URL for your API request
-                    var apiUrl = $"https://overpass-api.de/api/interpreter?data=[out:json];node[\"amenity\"=\"restaurant\"](around:10000,{latitude},{longitude});out;";
+                    //var apiUrl = $"https://overpass-api.de/api/interpreter?data=[out:json];node[\"amenity\"=\"restaurant\"](around:10000,{latitude},{longitude});out;";
+                    var apiUrl =
+                        $"https://overpass-api.de/api/interpreter?data=[out:json];node[\"amenity\"=\"restaurant\"](around:10000,{latitude.ToString().Replace(',','.')},{longitude.ToString().Replace(',', '.')});out;";
 
                     // Make the GET request to the API
                     var response = await httpClient.GetAsync(apiUrl);
@@ -42,10 +44,19 @@ namespace ExamenNicIan.Controllers
                         var responseBody = await response.Content.ReadAsStringAsync();
 
                         // Deserialize the JSON response into a list of Restaurant objects
-                        var restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(responseBody);
+                        var restaurant = JsonConvert.DeserializeObject<Restaurant>(responseBody);
+                        if (restaurant != null)
+                        {
+                            var restaurants = new List<Restaurant>();
+                            restaurants.Add(restaurant);
 
-                        // Return the list of restaurants
-                        return restaurants;
+                            // Return the list of restaurants
+                            return restaurants;
+                        }
+                        else
+                        {
+                            return new List<Restaurant>(); 
+                        }
                     }
                     else
                     {
