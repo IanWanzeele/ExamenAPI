@@ -25,9 +25,10 @@
 }
 
 function initializeMap(latitude, longitude) {
+    var zoomLevel = latitude === 50.5503 && longitude === 4.3517 ? 7 : 13.5;
     var map = new atlas.Map("myMap", {
         center: [longitude, latitude], // Center the map on the specified location
-        zoom: 13.5,
+        zoom: zoomLevel,
         view: 'Auto',
         authOptions: {
             authType: 'subscriptionKey',

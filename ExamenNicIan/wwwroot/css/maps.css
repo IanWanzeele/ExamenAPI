@@ -7,7 +7,7 @@ body {
 }
 
 #myMap {
-    width: 100%;
-    height: calc(80vw); /* Set the height based on the viewport width */
-    max-height: 80vh;
+    width: 50%; /* Set the width to occupy 50% of the window's width */
+    height: calc(60vh - 20px); /* Calculate the height to occupy 100% of the window's height minus 20 pixels */
+    max-height: 100%; /* Set the maximum height to 100% of the window's height */
 }
