@@ -7,7 +7,7 @@ namespace ExamenNicIan.Controllers
     public class RestaurantsController : Controller
     {
         [HttpGet]
-        public async Task<IActionResult> Index(double latitude, double longitude)
+        public async Task<IActionResult> Index([FromForm]double latitude, [FromForm] double longitude)
         {
             // Make API call to retrieve restaurant data based on latitude and longitude
             var restaurants = await GetRestaurantsFromApi(latitude, longitude);

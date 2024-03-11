@@ -60,10 +60,12 @@ function initializeMap(latitude, longitude) {
 }
 
 function sendLocationAjax(latitude, longitude) {
+    console.log('Latitude:', latitude);
+    console.log('Longitude:', longitude);
     // Send AJAX request to HomeController action with latitude and longitude parameters
     $.ajax({
-        url: '/Restaurants/GetRestaurantFromApi',
-        method: 'post',
+        url: '/Restaurants/Index',
+        method: 'POST',
         data: { latitude: latitude, longitude: longitude },
         success: function (response) {
             console.log('Location processed successfully:', response);
