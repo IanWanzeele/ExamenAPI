@@ -11,19 +11,19 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="~/css/maps.css" type="text/css" />
 </head>
+<div class="left-stripe"></div>
+<div class="right-stripe"></div>
 <body onload="GetMap()">
-<div id="myMap"></div>
-
-<h1>Restaurants Nearby!</h1>
-@foreach (var restaurant in Model)
-{
-    <div class="col-4">
-        <partial name="RestaurantPartialCards" model="restaurant"/>
+    <div id="mapContainer">
+        <div id="myMap"></div>
+        <div id="restaurantData">
+            <!-- Display restaurant data here -->
+        </div>
     </div>
-}
 
 
-<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
-<script src="~/js/map.js"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
+    <script src="~/js/map.js"></script>
+
 </body>
 </html>

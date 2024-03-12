@@ -7,27 +7,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\logo.png" />
-    <None Remove="Resources\search.png" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Core\" />
-    <Folder Include="NewFolder\" />
-    <Folder Include="Views\Partials\" />
-    <Folder Include="wwwroot\NewFolder\" />
+    <Compile Remove="NewFolder\**" />
+    <Compile Remove="Resources\**" />
+    <Compile Remove="wwwroot\NewFolder\**" />
+    <Content Remove="NewFolder\**" />
+    <Content Remove="Resources\**" />
+    <Content Remove="wwwroot\NewFolder\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <EmbeddedResource Remove="wwwroot\NewFolder\**" />
+    <None Remove="NewFolder\**" />
+    <None Remove="Resources\**" />
+    <None Remove="wwwroot\NewFolder\**" />
+
   </ItemGroup>
 
   <ItemGroup>
 
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-
-    <Resource Include="Resources\logo.png" />
-
-    <Resource Include="Resources\search.png" />
   </ItemGroup>
 
 </Project>
