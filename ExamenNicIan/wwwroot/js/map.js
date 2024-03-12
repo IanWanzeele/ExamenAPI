@@ -1,7 +1,33 @@
 ﻿function GetMap() {
+    navigator.geolocation.getCurrentPosition(function (position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        console.log("Latitude: " + latitude + ", Longitude: " + longitude);
+
+        // Initialize the map centered on the user's location
+        initializeMap(latitude, longitude);
+
+        // Send AJAX request with user's location
+        sendLocationAjax(latitude, longitude);
+    }, function (error) {
+        console.error('Error getting user location:', error);
+
+        // If user denies access to their location or if geolocation is not supported, center the map on Belgium
+        var belgiumLatitude = 50.5503;
+        var belgiumLongitude = 4.3517;
+
+        // Initialize the map centered on Belgium
+        initializeMap(belgiumLatitude, belgiumLongitude);
+
+        // Send AJAX request with Belgium's location
+        sendLocationAjax(belgiumLatitude, belgiumLongitude);
+    });
+}
+
+function initializeMap(latitude, longitude) {
     var map = new atlas.Map("myMap", {
-        center: [50.10789, 4.4764595],
-        zoom: 10,
+        center: [longitude, latitude], // Center the map on the specified location
+        zoom: 13.5,
         view: 'Auto',
         authOptions: {
             authType: 'subscriptionKey',
@@ -9,21 +35,45 @@
         }
     });
 
+    // Wait for the map to be ready
     map.events.add('ready', function () {
-        var datasource = new atlas.source.DataSource();
-        map.sources.add(datasource);
-
-        var resultLayer = new atlas.layer.SymbolLayer(datasource, null, {
-            iconOptions: {
-                image: 'pin-round-darkblue',
-                anchor: 'center',
-                allowOverlap: true
-            },
-            textOptions: {
-                anchor: "top"
-            }
+        // Remove hidden elements
+        var hiddenElements = document.querySelectorAll('.hidden-accessible-element');
+        hiddenElements.forEach(function (element) {
+            element.parentNode.removeChild(element);
         });
 
-        map.layers.add(resultLayer);
+        // Remove atlas-control-container element
+        var controlContainer = document.querySelector('.atlas-control-container');
+        if (controlContainer) {
+            controlContainer.parentNode.removeChild(controlContainer);
+        }
+
+        // Add a marker at the specified location
+        var marker = new atlas.HtmlMarker({
+            position: [longitude, latitude],
+            htmlContent: '<div style="color: red;">You are here</div>'
+        });
+
+        map.markers.add(marker);
     });
 }
+
+function sendLocationAjax(latitude, longitude) {
+    // Send AJAX request to HomeController action with latitude and longitude parameters
+    $.ajax({
+        url: '/Restaurants/GetRestaurantFromApi',
+        method: 'post',
+        data: { latitude: latitude, longitude: longitude },
+        success: function (response) {
+            console.log('Location processed successfully:', response);
+        },
+        error: function (xhr, status, error) {
+            console.error('Error processing location:', error);
+        }
+    });
+}
+
+$(document).ready(function () {
+    GetMap();
+});

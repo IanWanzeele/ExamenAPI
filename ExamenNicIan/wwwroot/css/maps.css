@@ -8,5 +8,6 @@ body {
 
 #myMap {
     width: 100%;
-    height: 100%;
+    height: calc(80vw); /* Set the height based on the viewport width */
+    max-height: 80vh;
 }
