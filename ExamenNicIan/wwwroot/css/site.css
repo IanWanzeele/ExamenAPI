@@ -1,24 +1,24 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 .search-container {
@@ -40,7 +40,7 @@ body {
 
 .search-button {
     padding: 10px 20px;
-    background-color: red;
+    background-color: #d60000 !important;
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -74,7 +74,7 @@ body {
     align-items: center;
 }
 
-.logo-container img {
+    .logo-container img {
         max-width: 100%;
         height: auto;
     }
@@ -104,6 +104,43 @@ body {
     color: #d60000 !important;
     margin-top: 40px;
     margin-left: 21px;
-
 }
 
+.logo-container-favorites {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.restaurant-list {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.restaurant-item {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.navbar {
+    position: relative;
+}
+
+    .navbar .logo-container-favorites {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        max-width: 150px;
+    }
+
+        .navbar .logo-container-favorites img {
+            width: 100%;
+            height: auto;
+        }
