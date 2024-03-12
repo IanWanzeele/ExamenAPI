@@ -7,7 +7,8 @@ namespace ExamenNicIan.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            List<Restaurant> lst = new List<Restaurant>();
+            return View(lst);
         }
     }
 }

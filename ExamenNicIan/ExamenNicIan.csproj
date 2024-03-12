@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+
     <Compile Remove="NewFolder\**" />
     <Compile Remove="Resources\**" />
     <Compile Remove="wwwroot\NewFolder\**" />
@@ -19,6 +20,7 @@
     <None Remove="NewFolder\**" />
     <None Remove="Resources\**" />
     <None Remove="wwwroot\NewFolder\**" />
+
   </ItemGroup>
 
   <ItemGroup>
