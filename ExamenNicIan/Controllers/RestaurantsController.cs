@@ -12,10 +12,11 @@ namespace ExamenNicIan.Controllers
             // Make API call to retrieve restaurant data based on latitude and longitude
             var restaurants = await GetRestaurantsFromApi(model.Latitude, model.Longitude);
             var restaurantJson = JsonConvert.SerializeObject(restaurants);
+            TempData["restaurantsJson"] = restaurantJson;
             
 
-            // Pass the list of restaurants to the view
-            return RedirectToAction("Index", "Map", new {restaurantJson});
+         
+            return RedirectToAction("Index", "Map");
         }
 
         private async Task<Restaurant> GetRestaurantsFromApi(double latitude, double longitude)

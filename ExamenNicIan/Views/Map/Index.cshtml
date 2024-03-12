@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ExamenNicIan.Models.Restaurant>
+﻿@model Restaurant
 @{
     ViewBag.Title = "Map Search";
 
@@ -18,6 +18,18 @@
         <div id="myMap"></div>
         <div id="restaurantData">
             <!-- Display restaurant data here -->
+            <div class="restaurant-list">
+                @if (Model != null)
+                {
+                    @foreach (var restaurant in Model.elements)
+                    {
+                        <div class="restaurant-item">
+                            <h2>@restaurant.tags.name</h2>
+                            <p>@restaurant.tags.description</p>
+                        </div>
+                    }
+                }
+            </div> 
         </div>
     </div>
 
