@@ -7,16 +7,16 @@ namespace ExamenNicIan.Controllers
     public class RestaurantsController : Controller
     {
         [HttpGet, HttpPost]
-        public async Task<IActionResult> Index([FromBody] Location model)
+        public async Task<IActionResult> Index(double latitude, double longitude)
         {
             // Make API call to retrieve restaurant data based on latitude and longitude
-            var restaurants = await GetRestaurantsFromApi(model.Latitude, model.Longitude);
+            var restaurants = await GetRestaurantsFromApi(latitude, longitude);
             var restaurantJson = JsonConvert.SerializeObject(restaurants);
             TempData["restaurantsJson"] = restaurantJson;
-            
 
-         
+
             return RedirectToAction("Index", "Map");
+
         }
 
         private async Task<Restaurant> GetRestaurantsFromApi(double latitude, double longitude)
