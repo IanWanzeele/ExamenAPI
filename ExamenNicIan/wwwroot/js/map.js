@@ -25,9 +25,10 @@
 }
 
 function initializeMap(latitude, longitude) {
+    var zoomLevel = latitude === 50.5503 && longitude === 4.3517 ? 7 : 13.5;
     var map = new atlas.Map("myMap", {
         center: [longitude, latitude], // Center the map on the specified location
-        zoom: 13.5,
+        zoom: zoomLevel,
         view: 'Auto',
         authOptions: {
             authType: 'subscriptionKey',
@@ -60,11 +61,14 @@ function initializeMap(latitude, longitude) {
 }
 
 function sendLocationAjax(latitude, longitude) {
+    console.log('Latitude:', latitude);
+    console.log('Longitude:', longitude);
     // Send AJAX request to HomeController action with latitude and longitude parameters
     $.ajax({
-        url: '/Restaurants/GetRestaurantFromApi',
-        method: 'post',
-        data: { latitude: latitude, longitude: longitude },
+        url: '/Restaurants/Index',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ latitude: latitude, longitude: longitude }),
         success: function (response) {
             console.log('Location processed successfully:', response);
         },

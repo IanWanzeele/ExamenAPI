@@ -12,6 +12,7 @@ body {
 }
 
 #myMap {
+
     flex: 2;
     border: 5px solid #d60000;
 }
