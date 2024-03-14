@@ -65,10 +65,10 @@ function sendLocationAjax(latitude, longitude) {
     console.log('Longitude:', longitude);
     // Send AJAX request to HomeController action with latitude and longitude parameters
     $.ajax({
-        url: '/Restaurants/Index?latitude=' + latitude + '&longitude=' + longitude,
+        url: '/Map/Index',
         method: 'POST',
         contentType: 'application/json',
-       /* data: JSON.stringify({ latitude: latitude, longitude: longitude }),*/
+        data: JSON.stringify({ latitude: latitude, longitude: longitude }),
         success: function (response) {
             console.log('Location processed successfully:', response);
             //if (response.redirectUrl) {
@@ -81,6 +81,7 @@ function sendLocationAjax(latitude, longitude) {
         }
     });
 }
+
 
 $(document).ready(function () {
     GetMap();
