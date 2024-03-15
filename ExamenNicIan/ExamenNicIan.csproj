@@ -7,17 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-
-    <Compile Remove="NewFolder\**" />
     <Compile Remove="Resources\**" />
     <Compile Remove="wwwroot\NewFolder\**" />
-    <Content Remove="NewFolder\**" />
     <Content Remove="Resources\**" />
     <Content Remove="wwwroot\NewFolder\**" />
-    <EmbeddedResource Remove="NewFolder\**" />
     <EmbeddedResource Remove="Resources\**" />
     <EmbeddedResource Remove="wwwroot\NewFolder\**" />
-    <None Remove="NewFolder\**" />
     <None Remove="Resources\**" />
     <None Remove="wwwroot\NewFolder\**" />
 

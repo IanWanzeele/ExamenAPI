@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ExamenNicIan.Models.Restaurant>
 @{
     ViewBag.Title = "Map Search";
-
+    var restaurants = ViewBag.Restaurants as Restaurant;
 }
 
 <!DOCTYPE html>
@@ -18,6 +18,11 @@
         <div id="myMap"></div>
         <div id="restaurantData">
             <!-- Display restaurant data here -->
+            @foreach (var restaurant in ViewBag.Restaurants)
+            {
+                <partial name="RestaurantPartialCards" model="restaurant" />
+            }
+
         </div>
     </div>
 
