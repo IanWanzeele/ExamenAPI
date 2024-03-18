@@ -1,0 +1,58 @@
+﻿@using System.Diagnostics.Eventing.Reader
+@model Restaurant
+@{
+    ViewBag.Title = "Map Search";
+}
+
+
+<div class="left-stripe"></div>
+<div class="right-stripe"></div>
+<div id="mapContainer" onload="getMap()">
+    <div id="myMap"></div>
+    <!-- Display restaurant data here -->
+</div>
+<div id="restaurantData">
+@if (Model != null && Model.elements != null)
+{
+    @foreach (var element in Model.elements)
+    {
+        <partial name="RestaurantPartialCards" model="element" />
+    }
+}
+else
+{
+    <p>Geen data</p>
+}
+</div>
+
+
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+
+                    $.ajax({
+                        url: '/Map/Fetch',
+                        method: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify({ Latitude: latitude, Longitude: longitude }),
+                        success: function(data) {
+                            console.log('Location processed successfully:', data);
+
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error processing location:', error);
+                        }
+                    });
+                },
+                function(error) {
+                    console.error('Error getting user location:', error);
+                });
+        });
+    </script>
+}

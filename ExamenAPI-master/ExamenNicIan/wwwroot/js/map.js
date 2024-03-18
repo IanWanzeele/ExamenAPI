@@ -8,7 +8,7 @@
         initializeMap(latitude, longitude);
 
         // Send AJAX request with user's location
-        sendLocationAjax(latitude, longitude);
+        /*sendLocationAjax(latitude, longitude);*/
     }, function (error) {
         console.error('Error getting user location:', error);
 
@@ -20,7 +20,7 @@
         initializeMap(belgiumLatitude, belgiumLongitude);
 
         // Send AJAX request with Belgium's location
-        sendLocationAjax(belgiumLatitude, belgiumLongitude);
+        /*sendLocationAjax(belgiumLatitude, belgiumLongitude);*/
     });
 }
 
@@ -60,28 +60,23 @@ function initializeMap(latitude, longitude) {
     });
 }
 
-function sendLocationAjax(latitude, longitude) {
-    console.log('Latitude:', latitude);
-    console.log('Longitude:', longitude);
-    // Send AJAX request to HomeController action with latitude and longitude parameters
-    $.ajax({
-        url: '/Map/Index',
-        method: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify({ latitude: latitude, longitude: longitude }),
-        success: function (response) {
-            console.log('Location processed successfully:', response);
-            //if (response.redirectUrl) {
-            //    // Redirect to the specified URL
-            //    window.location.href = response.redirectUrl;
-            //}
-        },
-        error: function (xhr, status, error) {
-            console.error('Error processing location:', error);
-        }
-    });
-}
-
+//function sendLocationAjax(latitude, longitude) {
+//    console.log('Latitude:', latitude);
+//    console.log('Longitude:', longitude);
+//    // Send AJAX request to HomeController action with latitude and longitude parameters
+//    $.ajax({
+//        url: '/Map/Fetch',
+//        method: 'POST',
+//        contentType: 'application/json',
+//        data: JSON.stringify({ latitude: latitude, longitude: longitude }),
+//        success: function (response) {
+//            console.log('Location processed successfully:', response);
+//        },
+//        error: function (xhr, status, error) {
+//            console.error('Error processing location:', error);
+//        }
+//    });
+//}
 
 $(document).ready(function () {
     GetMap();

@@ -1,0 +1,85 @@
+﻿@using System.Collections.Specialized
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+   
+</head>
+<body>
+<div class="left-stripe"></div>
+<div class="right-stripe"></div>
+
+<div class="logo-container">
+    <img src="Resources/logo.png" alt="Logo"> 
+</div>
+</body>
+
+<!-- Zoekbalk en knop -->
+<div class="search-container">
+    <input type="text" class="search-input" placeholder="Search...">
+    <button class="search-button">Search</button>
+</div>
+
+<div class="introduction stylish-p-text">
+    <p>Welcome to Food-ix, the place to be when you are hungry!</p>
+    <p>Just type in the area code of your choice and find new spots to eat.</p>
+    <p>You can add food-locations you like to your favorites to easier access them later.</p>
+    <p>So start browsing and fix that craving!</p>
+
+</div>
+
+    
+</html>
+
+@section Scripts
+{
+    navigator.geolocation.getCurrentPosition(function (position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    console.log("Latitude: " + latitude + ", Longitude: " + longitude);
+
+    // Initialize the map centered on the user's location
+    initializeMap(latitude, longitude);
+
+    // Send AJAX request with user's location
+    sendLocationAjax(latitude, longitude);
+    }, function (error) {
+    console.error('Error getting user location:', error);
+
+    // If user denies access to their location or if geolocation is not supported, center the map on Belgium
+    var belgiumLatitude = 50.5503;
+    var belgiumLongitude = 4.3517;
+
+    // Initialize the map centered on Belgium
+    initializeMap(belgiumLatitude, belgiumLongitude);
+
+    // Send AJAX request with Belgium's location
+    sendLocationAjax(belgiumLatitude, belgiumLongitude);
+    });
+    
+
+    function sendLocationAjax(latitude, longitude) {
+    console.log('Latitude:', latitude);
+    console.log('Longitude:', longitude);
+    // Send AJAX request to HomeController action with latitude and longitude parameters
+    $.ajax({
+    url: '/Map/Fetch',
+    method: 'POST',
+    contentType: 'application/json',
+    data:JSON.stringify ({ latitude: latitude, longitude: longitude }),
+    success: function (response) {
+    console.log('Location processed successfully:', response);
+    },
+    error: function (xhr, status, error) {
+    console.error('Error processing location:', error);
+    }
+    });
+    }
+}

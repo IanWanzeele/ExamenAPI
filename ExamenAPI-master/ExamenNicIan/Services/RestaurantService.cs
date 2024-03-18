@@ -1,33 +1,14 @@
 ﻿using ExamenNicIan.Models;
-using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.DependencyInjection;
+using ExamenNicIan.Services;
 
-namespace ExamenNicIan.Controllers
+namespace ExamenNicIan.Services
 {
-    public class MapController :Controller
+    public class RestaurantService
     {
-        
-        [HttpGet, HttpPost]
-        public async Task<IActionResult> Index(double latitude, double longitude)
+        public async Task<Restaurant> GetRestaurantsFromApi(double latitude, double longitude)
         {
-        //    // Make API call to retrieve restaurant data based on latitude and longitude
-            var restaurants = await GetRestaurantsFromApi(latitude, longitude);
-        //    //var restaurantJson = JsonConvert.SerializeObject(restaurants);
-        //    //TempData["restaurantsJson"] = restaurantJson;
-
-
-           return View(restaurants);
-
-        }
-        
-
-
-        private async Task<Restaurant> GetRestaurantsFromApi(double latitude, double longitude)
-        {
-
-
-
             using (var httpClient = new HttpClient())
             {
                 try
@@ -63,10 +44,9 @@ namespace ExamenNicIan.Controllers
                     Console.WriteLine($"An error occurred: {ex.Message}");
                 }
             }
-
             // If an error occurred or the API call failed, return an empty list
             return null;
         }
-
     }
 }
+
