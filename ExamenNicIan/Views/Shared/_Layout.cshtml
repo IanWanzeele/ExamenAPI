@@ -25,16 +25,35 @@
                             <a class="nav-link text-dark stylish-nav-text" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark stylish-nav-text" asp-area="" asp-controller="Map" asp-action="Index">Favorites</a>
+                            <a class="nav-link text-dark stylish-nav-text" asp-area="" asp-controller="Restaurants" asp-action="Favorites">Favorites</a>
                         </li>
-                    </ul>
-                    <ul class="navbar-nav ml-auto stylish-nav-text nav-margin-right">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark stylish-nav-text" asp-area="" asp-controller="User" asp-action="Register">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark stylish-nav-text" asp-area="" asp-controller="User" asp-action="Login">Login</a>
-                        </li>
+                        @{
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                // If the user is authenticated, render the dropdown menu with the logged-in profile's name
+                                <div class="dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark stylish-nav-text" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                        @User.Identity.Name <!-- Display the name of the logged-in user -->
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                                    </ul>
+                                </div>
+                            }
+                            else
+                            {
+                                // If the user is not authenticated, render the Register and Login links
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark stylish-nav-text" asp-area="" asp-controller="User" asp-action="Register">Register</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark stylish-nav-text" asp-area="" asp-controller="User" asp-action="Login">Login</a>
+                                </li>
+                            }
+                        }
                     </ul>
                 </div>
 
