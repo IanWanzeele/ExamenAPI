@@ -3,36 +3,36 @@
   "WorkspaceRootPath": "C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|c:\\vives\\kwartaal3\\application software\\examenapi\\examennician\\controllers\\mapcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|solutionrelative:examennician\\controllers\\mapcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Controllers\\MapController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ExamenNicIan\\Controllers\\MapController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|c:\\vives\\kwartaal3\\application software\\examenapi\\examennician\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|solutionrelative:examennician\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\wwwroot\\js\\map.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ExamenNicIan\\wwwroot\\js\\map.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|c:\\vives\\kwartaal3\\application software\\examenapi\\examennician\\services\\restaurantservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|solutionrelative:examennician\\services\\restaurantservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ExamenNicIan\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|c:\\vives\\kwartaal3\\application software\\examenapi\\examennician\\views\\map\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|solutionrelative:examennician\\views\\map\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Views\\Shared\\_Layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ExamenNicIan\\Views\\Shared\\_Layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|c:\\vives\\kwartaal3\\application software\\examenapi\\examennician\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|solutionrelative:examennician\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Views\\Map\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ExamenNicIan\\Views\\Map\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|c:\\vives\\kwartaal3\\application software\\examenapi\\examennician\\wwwroot\\js\\map.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|solutionrelative:examennician\\wwwroot\\js\\map.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Models\\Location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ExamenNicIan\\Models\\Location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|c:\\vives\\kwartaal3\\application software\\examenapi\\examennician\\models\\location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|solutionrelative:examennician\\models\\location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Views\\Home\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ExamenNicIan\\Views\\Home\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|c:\\vives\\kwartaal3\\application software\\examenapi\\examennician\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DAEC5072-8368-42BC-ADF0-0FEAA3A7BB01}|ExamenNicIan\\ExamenNicIan.csproj|solutionrelative:examennician\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Services\\RestaurantService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ExamenNicIan\\Services\\RestaurantService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +46,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "map.js",
               "DocumentMoniker": "C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\wwwroot\\js\\map.js",
               "RelativeDocumentMoniker": "ExamenNicIan\\wwwroot\\js\\map.js",
@@ -55,21 +55,7 @@
               "ViewState": "AQIAAAwAAAAAAAAAAAA1wE0AAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-03-13T10:16:45.408Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Program.cs",
-              "RelativeDocumentMoniker": "ExamenNicIan\\Program.cs",
-              "ToolTip": "C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Program.cs",
-              "RelativeToolTip": "ExamenNicIan\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-15T11:35:40.9Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -77,7 +63,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Program.cs",
+              "RelativeDocumentMoniker": "ExamenNicIan\\Program.cs",
+              "ToolTip": "C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Program.cs",
+              "RelativeToolTip": "ExamenNicIan\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-15T11:35:40.9Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ExamenNicIan\\Views\\Shared\\_Layout.cshtml",
@@ -85,12 +83,11 @@
               "RelativeToolTip": "ExamenNicIan\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AQIAAGwAAAAAAAAAAAAAAEMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-15T10:06:49.453Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-15T10:06:49.453Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Views\\Map\\Index.cshtml",
               "RelativeDocumentMoniker": "ExamenNicIan\\Views\\Map\\Index.cshtml",
@@ -98,8 +95,7 @@
               "RelativeToolTip": "ExamenNicIan\\Views\\Map\\Index.cshtml",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAC0AAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-15T09:41:05.563Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-15T09:41:05.563Z"
             },
             {
               "$type": "Document",
@@ -107,16 +103,14 @@
               "Title": "MapController.cs",
               "DocumentMoniker": "C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Controllers\\MapController.cs",
               "RelativeDocumentMoniker": "ExamenNicIan\\Controllers\\MapController.cs",
-              "ToolTip": "C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Controllers\\MapController.cs*",
-              "RelativeToolTip": "ExamenNicIan\\Controllers\\MapController.cs*",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAUwCUAAAAAAAAA",
+              "ToolTip": "C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Controllers\\MapController.cs",
+              "RelativeToolTip": "ExamenNicIan\\Controllers\\MapController.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-14T15:05:12.409Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-14T15:05:12.409Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Location.cs",
               "DocumentMoniker": "C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Models\\Location.cs",
               "RelativeDocumentMoniker": "ExamenNicIan\\Models\\Location.cs",
@@ -128,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "ExamenNicIan\\Views\\Home\\Index.cshtml",
@@ -140,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "RestaurantService.cs",
               "DocumentMoniker": "C:\\Vives\\Kwartaal3\\Application Software\\ExamenApi\\ExamenNicIan\\Services\\RestaurantService.cs",
               "RelativeDocumentMoniker": "ExamenNicIan\\Services\\RestaurantService.cs",
@@ -148,8 +142,7 @@
               "RelativeToolTip": "ExamenNicIan\\Services\\RestaurantService.cs",
               "ViewState": "AQIAAAUAAAAAAAAAAAAqwDMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-14T08:25:26.571Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-14T08:25:26.571Z"
             }
           ]
         }

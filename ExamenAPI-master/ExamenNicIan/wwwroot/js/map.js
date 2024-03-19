@@ -10,11 +10,12 @@ function GetMap() {
     }, function (error) {
         console.error('Error getting user location:', error);
 
-        var belgiumLatitude = 50.5503;
-        var belgiumLongitude = 4.3517;
+        latitude = 50.5503;
+        longitude = 4.3517;
 
         // Initialize the map centered on Belgium
-        initializeMap(belgiumLatitude, belgiumLongitude);
+        initializeMap(latitude, longitude);
+        fetchAndAddPOIs(latitude, longitude);
     });
 }
 
