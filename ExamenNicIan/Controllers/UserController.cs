@@ -44,26 +44,25 @@ namespace ExamenNicIan.Controllers
             return View();
         }
 
-        // POST: /User/Login
+        
         [HttpPost]
-        public async Task<IActionResult> Login(User user)
+        public async Task<IActionResult> Login(Login model)
         {
             if (ModelState.IsValid)
             {
-                var model = await _userService.Login(user.Email, user.Password);
-                if (model != null)
+                var user = await _userService.Login(model);
+                if (user != null)
                 {
-                    
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid email or password.");
-                    return View(user);
                 }
             }
 
-            return View(user);
+            return View(model);
         }
+
     }
 }
