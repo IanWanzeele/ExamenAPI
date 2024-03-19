@@ -1,4 +1,6 @@
-﻿namespace ExamenNicIan.Models
+﻿using Newtonsoft.Json;
+
+namespace ExamenNicIan.Models
 {
 
     public class Restaurant
@@ -26,7 +28,10 @@
 
     public class Tags
     {
+        
+        [JsonProperty("addr:housenumber")]
         public string addrhousenumber { get; set; }
+        [JsonProperty("addr:street")]
         public string addrstreet { get; set; }
         public string amenity { get; set; }
         public string cuisine { get; set; }
@@ -34,15 +39,20 @@
         public string phone { get; set; }
         public string website { get; set; }
         public string wheelchair { get; set; }
+        [JsonProperty("addr:city")]
         public string addrcity { get; set; }
+        [JsonProperty("addr:postcode")]
         public string addrpostcode { get; set; }
         public string stars { get; set; }
         public string description { get; set; }
         public string email { get; set; }
         public string opening_hourskitchen { get; set; }
         public string opening_hours { get; set; }
+        [JsonProperty("addr:country")]
         public string addrcountry { get; set; }
+        [JsonProperty("addr:province")]
         public string addrprovince { get; set; }
+        [JsonProperty("addr:suburb")]
         public string addrsuburb { get; set; }
         public string toiletswheelchair { get; set; }
         public string changing_table { get; set; }
