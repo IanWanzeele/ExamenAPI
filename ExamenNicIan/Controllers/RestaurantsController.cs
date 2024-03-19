@@ -1,5 +1,6 @@
 ﻿using ExamenNicIan.Models;
 using ExamenNicIan.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -53,6 +54,11 @@ namespace ExamenNicIan.Controllers
 
                 return count;
             }
+        [Authorize]
+        public IActionResult Favorites()
+        { 
+            return View();
+        }
     }
 
     }
