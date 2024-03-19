@@ -122,9 +122,16 @@ namespace ExamenNicIan.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, User user)
+        public async Task<IActionResult> Edit( User user)
         {
-            var dbUser = _userDbContext.Users.FirstOrDefault(u => u.UserId == id);
+            var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (!int.TryParse(userIdString, out int userId))
+            {
+                // Handle the case where the user ID cannot be parsed to an integer
+                // For example, redirect to the home page or display an error message
+                return RedirectToAction("Index", "Home");
+            }
+            var dbUser = _userDbContext.Users.FirstOrDefault(u => u.UserId == userId);
 
             if (dbUser == null)
             {
@@ -138,6 +145,20 @@ namespace ExamenNicIan.Controllers
             // Add other properties as needed
 
             _userDbContext.SaveChanges();
+            var identity = (ClaimsIdentity)User.Identity;
+            var nameClaim = identity.FindFirst(ClaimTypes.Name);
+            if (nameClaim != null)
+            {
+                identity.RemoveClaim(nameClaim);
+                identity.AddClaim(new Claim(ClaimTypes.Name, user.FirstName));
+            }
+
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            // Sign the user back in with updated claims
+            var newIdentity = new ClaimsIdentity(identity.Claims, identity.AuthenticationType);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(newIdentity));
+
 
             return RedirectToAction("Index", "Home");
         }
