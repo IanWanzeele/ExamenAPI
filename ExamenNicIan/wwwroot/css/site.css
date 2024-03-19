@@ -132,15 +132,21 @@ body {
     position: relative;
 }
 
-    .navbar .logo-container-favorites {
+.navbar .logo-container-favorites {
         position: absolute;
         top: 50%;
         right: 0;
         transform: translateY(-50%);
         max-width: 150px;
-    }
+}
 
-        .navbar .logo-container-favorites img {
+.navbar .logo-container-favorites img {
             width: 100%;
             height: auto;
-        }
+}
+
+#restaurantData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

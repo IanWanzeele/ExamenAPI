@@ -19,8 +19,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\Resources\r1.jpg" />
+    <Content Remove="wwwroot\Resources\r2.jpg" />
+    <Content Remove="wwwroot\Resources\r3.jpeg" />
+    <Content Remove="wwwroot\Resources\r4.jpg" />
+    <Content Remove="wwwroot\Resources\r5.jpeg" />
+    <Content Remove="wwwroot\Resources\r6.jpeg" />
+    <Content Remove="wwwroot\Resources\r7.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
 
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="wwwroot\Resources\r1.jpg" />
+    <Resource Include="wwwroot\Resources\r2.jpg" />
+    <Resource Include="wwwroot\Resources\r3.jpeg" />
+    <Resource Include="wwwroot\Resources\r4.jpg" />
+    <Resource Include="wwwroot\Resources\r5.jpeg" />
+    <Resource Include="wwwroot\Resources\r6.jpeg" />
+    <Resource Include="wwwroot\Resources\r7.jpeg" />
   </ItemGroup>
 
 </Project>

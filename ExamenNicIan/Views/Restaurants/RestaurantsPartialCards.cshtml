@@ -3,8 +3,14 @@
 <div class="card" style="width: 18rem;">
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
-        <h5 class="card-title">@Model.tags.name</h5>
-        <p class="card-text">@Model.tags.description</p>
-        <a href="#" class="btn btn-primary">Discover</a>
+        <div class="card">
+            <h2>@Model.tags.name</h2>
+            <p>@Model.tags.addrstreet @Model.tags.addrhousenumber</p>
+            <p>@Model.tags.addrcity, @Model.tags.addrpostcode</p>
+            <p>@Model.tags.phone</p>
+            <p><a href="@Model.tags.website">@Model.tags.website</a></p>
+            <p>Opening hours: @Model.tags.opening_hours</p>
+            <p>@Model.tags.description</p>
+        </div>
     </div>
 </div>
