@@ -1,5 +1,8 @@
-﻿using ExamenNicIan.Models;
+﻿using System.Security.Claims;
+using ExamenNicIan.Models;
 using ExamenNicIan.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExamenNicIan.Controllers
@@ -53,6 +56,29 @@ namespace ExamenNicIan.Controllers
                 var user = await _userService.Login(model);
                 if (user != null)
                 {
+                    // Create claims for the authenticated user
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name, user.FirstName), // Assuming user.Email contains the email
+                        // You can add more claims if needed
+                    };
+
+                    // Create identity for the user
+                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    // Create authentication properties
+                    var authProperties = new AuthenticationProperties
+                    {
+                        // You can configure various properties here
+                        IsPersistent = false, // Make the authentication persistent
+                    };
+
+                    // Sign in the user
+                    await HttpContext.SignInAsync(
+                        CookieAuthenticationDefaults.AuthenticationScheme,
+                        new ClaimsPrincipal(claimsIdentity),
+                        authProperties);
+
                     return RedirectToAction("Index", "Home");
                 }
                 else

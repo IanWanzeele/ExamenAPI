@@ -29,7 +29,6 @@ namespace ExamenNicIan.Services
                         // Deserialize the JSON response into a single Restaurant object
                         var restaurant = JsonConvert.DeserializeObject<Restaurant>(responseBody);
 
-                        
                         return restaurant;
                     }
                     else
