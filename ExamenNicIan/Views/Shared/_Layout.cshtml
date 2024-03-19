@@ -20,7 +20,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1 stylish-nav-text">
+                    <ul class="navbar-nav stylish-nav-text">
                         <li class="nav-item">
                             <a class="nav-link text-dark stylish-nav-text" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
                         </li>
@@ -31,7 +31,7 @@
                             if (User.Identity.IsAuthenticated)
                             {
                                 // If the user is authenticated, render the dropdown menu with the logged-in profile's name
-                                <div class="dropdown">
+                                <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle text-dark stylish-nav-text" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                         @User.Identity.Name <!-- Display the name of the logged-in user -->
                                     </a>
@@ -41,7 +41,7 @@
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a class="dropdown-item" asp-controller="User" asp-action="Logout">Logout</a></li>
                                     </ul>
-                                </div>
+                                </li>
                             }
                             else
                             {
@@ -63,7 +63,7 @@
                 var action = ViewContext.RouteData.Values["Action"].ToString();
             }
 
-            @if ((controller == "Map" && action == "Index") || (controller == "Restaurants" && action == "Search"))
+            @if ((controller == "Map" && action == "Index") || (controller == "Restaurants" && action == "Search") || controller == "User")
             {
                 <div class="logo-container-wrapper">
                     <div class="logo-container-favorites">
@@ -71,6 +71,7 @@
                     </div>
                 </div>
             }
+
         </nav>
     </header>
     <div class="container">
