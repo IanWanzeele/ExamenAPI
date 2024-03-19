@@ -28,11 +28,32 @@ namespace ExamenNicIan.Controllers
                 }
 
                 // Fetch restaurants based on obtained latitude and longitude
-                var restaurants = await _restaurantService.GetRestaurantsFromApi(latitude, longitude);
+                var restaurant = await _restaurantService.GetRestaurantsFromApi(latitude, longitude);
 
-                return View(restaurants);
+                // Sort the elements
+                Array.Sort(restaurant.elements, (x, y) =>
+                {
+                    int xCount = CountFilledProperties(x);
+                    int yCount = CountFilledProperties(y);
+
+                    return yCount.CompareTo(xCount); // Sort in descending order
+                });
+
+                return View(restaurant);
             }
-        }
+
+            private int CountFilledProperties(Element element)
+            {
+                int count = 0;
+
+                if (!string.IsNullOrEmpty(element.tags.name)) count++;
+                if (!string.IsNullOrEmpty(element.tags.addrstreet)) count++;
+                if (!string.IsNullOrEmpty(element.tags.addrhousenumber)) count++;
+                // Add more checks for other properties...
+
+                return count;
+            }
+    }
 
     }
 

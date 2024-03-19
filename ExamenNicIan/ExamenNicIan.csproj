@@ -20,12 +20,15 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\Resources\r1.jpg" />
+    <Content Remove="wwwroot\Resources\r10.jpeg" />
     <Content Remove="wwwroot\Resources\r2.jpg" />
     <Content Remove="wwwroot\Resources\r3.jpeg" />
     <Content Remove="wwwroot\Resources\r4.jpg" />
     <Content Remove="wwwroot\Resources\r5.jpeg" />
     <Content Remove="wwwroot\Resources\r6.jpeg" />
     <Content Remove="wwwroot\Resources\r7.jpeg" />
+    <Content Remove="wwwroot\Resources\r8.jpg" />
+    <Content Remove="wwwroot\Resources\r9.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,12 +40,15 @@
 
   <ItemGroup>
     <Resource Include="wwwroot\Resources\r1.jpg" />
+    <Resource Include="wwwroot\Resources\r10.jpeg" />
     <Resource Include="wwwroot\Resources\r2.jpg" />
     <Resource Include="wwwroot\Resources\r3.jpeg" />
     <Resource Include="wwwroot\Resources\r4.jpg" />
     <Resource Include="wwwroot\Resources\r5.jpeg" />
     <Resource Include="wwwroot\Resources\r6.jpeg" />
     <Resource Include="wwwroot\Resources\r7.jpeg" />
+    <Resource Include="wwwroot\Resources\r8.jpg" />
+    <Resource Include="wwwroot\Resources\r9.jpg" />
   </ItemGroup>
 
 </Project>
