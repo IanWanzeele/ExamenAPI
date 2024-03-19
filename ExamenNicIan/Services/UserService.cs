@@ -17,9 +17,9 @@ namespace ExamenNicIan.Services
         {
             return await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
-        public async Task<User> Login(string email, string password)
+        public async Task<User> Login(Login model)
         {
-            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
+            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
             return user;
         }
         public async Task Register(User user)
