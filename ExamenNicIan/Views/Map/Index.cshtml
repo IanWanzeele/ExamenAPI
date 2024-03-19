@@ -14,14 +14,14 @@
 <div class="left-stripe"></div>
 <div class="right-stripe"></div>
 <body onload="GetMap()">
-    <div id="mapContainer">
-        <div id="myMap"></div>
-        <div id="restaurantData">
+<div id="mapContainer">
+    <div id="myMap"></div>
+    <div id="restaurantData">
             <!-- Display restaurant data here -->
-            @foreach (var restaurant in ViewBag.Restaurants)
+        @*     @foreach (var restaurant in ViewBag.Restaurants)
             {
                 <partial name="RestaurantPartialCards" model="restaurant" />
-            }
+            } *@
 
         </div>
     </div>

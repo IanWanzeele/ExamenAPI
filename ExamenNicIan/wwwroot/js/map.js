@@ -1,32 +1,27 @@
-﻿function GetMap() {
+﻿var map; // Define map variable in the outer scope
+
+function GetMap() {
     navigator.geolocation.getCurrentPosition(function (position) {
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
-        console.log("Latitude: " + latitude + ", Longitude: " + longitude);
 
-        // Initialize the map centered on the user's location
         initializeMap(latitude, longitude);
-
-        // Send AJAX request with user's location
-        sendLocationAjax(latitude, longitude);
+        fetchAndAddPOIs(latitude, longitude);
     }, function (error) {
         console.error('Error getting user location:', error);
 
-        // If user denies access to their location or if geolocation is not supported, center the map on Belgium
         var belgiumLatitude = 50.5503;
         var belgiumLongitude = 4.3517;
 
         // Initialize the map centered on Belgium
         initializeMap(belgiumLatitude, belgiumLongitude);
-
-        // Send AJAX request with Belgium's location
-        sendLocationAjax(belgiumLatitude, belgiumLongitude);
+        fetchAndAddPOIs(latitude, longitude);
     });
 }
 
 function initializeMap(latitude, longitude) {
     var zoomLevel = latitude === 50.5503 && longitude === 4.3517 ? 7 : 13.5;
-    var map = new atlas.Map("myMap", {
+    map = new atlas.Map("myMap", {
         center: [longitude, latitude], // Center the map on the specified location
         zoom: zoomLevel,
         view: 'Auto',
@@ -49,33 +44,36 @@ function initializeMap(latitude, longitude) {
         if (controlContainer) {
             controlContainer.parentNode.removeChild(controlContainer);
         }
-
-        // Add a marker at the specified location
-        var marker = new atlas.HtmlMarker({
-            position: [longitude, latitude],
-            htmlContent: '<div style="color: red;">You are here</div>'
-        });
-
-        map.markers.add(marker);
     });
 }
 
-function sendLocationAjax(latitude, longitude) {
-    console.log('Latitude:', latitude);
-    console.log('Longitude:', longitude);
-    // Send AJAX request to HomeController action with latitude and longitude parameters
-    $.ajax({
-        url: '/Map/Fetch',
-        method: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify({ latitude: latitude, longitude: longitude }),
-        success: function (response) {
-            console.log('Location processed successfully:', response);
-        },
-        error: function (xhr, status, error) {
-            console.error('Error processing location:', error);
-        }
-    });
+function fetchAndAddPOIs(latitude, longitude) {
+    var radius = 10000; // Radius in meters
+    var apiUrl = `https://overpass-api.de/api/interpreter?data=[out:json];node["amenity"="restaurant"](around:${radius},${latitude},${longitude});out;`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            data.elements.forEach(element => {
+                if (element.tags && element.tags.name) {
+                    var marker = new atlas.HtmlMarker({
+                        position: [element.lon, element.lat],
+                        htmlContent: `
+                <div style="position: relative; width: 20px; height: 20px;">
+                    <div style="position: absolute; bottom: 100%; color: blue; width: 100%; text-align: center;">
+                        ${element.tags.name}
+                    </div>
+                    <button style="background-color: orange; width: 100%; height: 100%; border-radius: 50%; border: none;"></button>
+                </div>`,
+                        anchor: 'center'
+                    });
+                    map.markers.add(marker);
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching POIs:', error);
+        });
 }
 
 $(document).ready(function () {
