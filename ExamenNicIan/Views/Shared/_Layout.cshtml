@@ -25,7 +25,7 @@
                             <a class="nav-link text-dark stylish-nav-text" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark stylish-nav-text" asp-area="" asp-controller="Map" asp-action="Index">Restaurants</a>
+                            <a class="nav-link text-dark stylish-nav-text" asp-area="" asp-controller="Map" asp-action="Index">Favorites</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark stylish-nav-text" asp-area="" asp-controller="User" asp-action="Register">Register</a>
@@ -42,11 +42,11 @@
                 var action = ViewContext.RouteData.Values["Action"].ToString();
             }
 
-            @if ((controller == "Map" || controller == "Restaurants") && action == "Index")
+            @if ((controller == "Map" && action == "Index") || (controller == "Restaurants" && action == "Search"))
             {
                 <div class="logo-container-wrapper">
                     <div class="logo-container-favorites">
-                        <img src="Resources/logo.png" alt="Logo">
+                        <img src="~/Resources/logo.png" alt="Logo">
                     </div>
                 </div>
             }

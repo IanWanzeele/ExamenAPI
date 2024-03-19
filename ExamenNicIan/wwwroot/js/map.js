@@ -63,11 +63,13 @@ function fetchAndAddPOIs(latitude, longitude) {
                     <div style="position: absolute; bottom: 100%; color: blue; width: 100%; text-align: center;">
                         ${element.tags.name}
                     </div>
-                    <button style="background-color: orange; width: 100%; height: 100%; border-radius: 50%; border: none;"></button>
+                    <button style="background-color: orange; width: 100%; height: 100%; border-radius: 50%; border: none;" onclick="displayRestaurantData('${element.tags.name || ''}', '${element.tags.addrstreet || ''}', '${element.tags.addrhousenumber || ''}', '${element.tags.cuisine || ''}', '${element.tags.phone || ''}', '${element.tags.website || ''}', '${element.tags.addrcity || ''}', '${element.tags.addrpostcode || ''}', '${element.tags.stars || ''}', '${element.tags.opening_hours || ''}', '${element.tags.description || ''}')"></button>
                 </div>`,
                         anchor: 'center'
                     });
                     map.markers.add(marker);
+                    console.log(`Name: ${element.tags.name}, Street: ${element.tags.addrstreet}, House Number: ${element.tags.addrhousenumber}`);
+
                 }
             });
         })
@@ -75,6 +77,23 @@ function fetchAndAddPOIs(latitude, longitude) {
             console.error('Error fetching POIs:', error);
         });
 }
+function displayRestaurantData(name, addrstreet, addrhousenumber, cuisine, phone, website, addrcity, addrpostcode, stars, opening_hours, description) {
+    var restaurantDataElement = document.getElementById('restaurantData');
+    // Clear the existing restaurant data
+    restaurantDataElement.innerHTML = '';
+    // Add the new restaurant data
+    restaurantDataElement.innerHTML = `
+        <h2>${name}</h2>
+        <p>${addrstreet} ${addrhousenumber}</p>
+        <p>${addrcity}, ${addrpostcode}</p>  
+        <p>${cuisine}</p>
+        <p>${phone}</p>
+        <p><a href="${website}">${website}</a></p>            
+        <p>Opening hours: ${opening_hours}</p>
+        <p>${description}</p>
+    `;
+}
+
 
 $(document).ready(function () {
     GetMap();
