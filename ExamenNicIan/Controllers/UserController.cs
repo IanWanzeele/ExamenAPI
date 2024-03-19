@@ -93,7 +93,7 @@ namespace ExamenNicIan.Controllers
         [HttpGet]
         public IActionResult Logout()
         {
-            HttpContext.SignOutAsync();
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
         }
     }
