@@ -90,5 +90,11 @@ namespace ExamenNicIan.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
