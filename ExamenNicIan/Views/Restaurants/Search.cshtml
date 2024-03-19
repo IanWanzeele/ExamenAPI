@@ -1,0 +1,16 @@
+﻿@model ExamenNicIan.Models.Restaurant
+
+
+<div id="restaurantData">
+    @if (Model != null && Model.elements != null)
+    {
+        @foreach (var element in Model.elements)
+        {
+            <partial name="RestaurantsPartialCards" model="element" />
+        }
+    }
+    else
+    {
+        <p>Geen data</p>
+    }
+</div>

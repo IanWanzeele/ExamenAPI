@@ -22,8 +22,12 @@
 
 <!-- Zoekbalk en knop -->
 <div class="search-container">
-    <input type="text" class="search-input" placeholder="Search...">
-    <button class="search-button">Search</button>
+    <form id="searchForm" asp-controller="Restaurants" asp-action="Search" method="post">
+        <div class="search-container">
+            <input type="text" class="search-input" name="query" id="query" placeholder="Search...">
+            <button type="submit" class="search-button">Search</button>
+        </div>
+    </form>
 </div>
 
 <div class="introduction stylish-p-text">
