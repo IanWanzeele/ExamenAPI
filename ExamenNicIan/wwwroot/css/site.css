@@ -145,7 +145,7 @@ body {
             height: auto;
 }
 
-#restaurantData {
+#restaurantData.search-page {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -169,6 +169,38 @@ body {
 
 #restaurantData .card .card-body {
             flex-grow: 1;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #d60000;
+    padding: 20px;
+    margin: 0 auto;
+    width: 300px; /* Adjust as needed */
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+.btn-primary {
+    background-color: #d60000 !important;
+    border-color: #d60000 !important;
+}
+
+.form-containerinner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    padding: 20px;
+    margin: 0 auto;
+    width: 300px; /* Adjust as needed */
+    text-align: center;
 }
 
 

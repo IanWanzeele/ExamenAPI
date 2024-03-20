@@ -1,4 +1,5 @@
 ﻿@model User
+<div class="form-containerinner">
 <div class="form-group">
     <label asp-for="FirstName"></label>
     <input asp-for="FirstName" class="form-control" />
@@ -21,4 +22,5 @@
     <label asp-for="Password"></label>
     <input asp-for="Password" type="password" class="form-control" />
     <span asp-validation-for="Password" class="text-danger"></span>
+</div>
 </div>
