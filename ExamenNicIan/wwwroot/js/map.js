@@ -6,7 +6,7 @@ function GetMap() {
         var longitude = position.coords.longitude;
 
         initializeMap(latitude, longitude);
-        fetchAndAddPOIs(latitude, longitude);
+
     }, function (error) {
         console.error('Error getting user location:', error);
 
@@ -15,7 +15,7 @@ function GetMap() {
 
         // Initialize the map centered on Belgium
         initializeMap(belgiumLatitude, belgiumLongitude);
-        fetchAndAddPOIs(latitude, longitude);
+        
     });
 }
 
@@ -45,7 +45,7 @@ function initializeMap(latitude, longitude) {
         if (controlContainer) {
             controlContainer.parentNode.removeChild(controlContainer);
         }
-        
+        fetchAndAddPOIs(latitude, longitude);
     });
 }
 
