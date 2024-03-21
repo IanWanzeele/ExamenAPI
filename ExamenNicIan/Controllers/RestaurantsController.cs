@@ -146,6 +146,12 @@ namespace ExamenNicIan.Controllers
             return View(favoriteRestaurants);
         }
 
+        public async Task<bool> IsFavorite(long restaurantId)
+        {
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return await _userDbContext.Favorites.AnyAsync(fr => fr.RestaurantID == restaurantId && fr.UserID == userId);
+        }
+
         //public async Task<bool> IsFavorite(long restaurantId)
         //{
         //    if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int userId))
