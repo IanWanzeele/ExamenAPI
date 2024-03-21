@@ -20,7 +20,7 @@
             <form asp-controller="Restaurants" asp-action="ToFavorites" method="post">
                 <input type="hidden" name="restaurantId" value="@Model.id" />
                 <input type="hidden" name="restaurantName" value="@Model.tags.name" />
-                <button class="star-button" type="submit">★</button>
+                <button  class="star-button {{IsFavorite(restaurantId) ? 'favorite' : ''}}" type="submit">★</button>
             </form>
         </div>
     </div>
