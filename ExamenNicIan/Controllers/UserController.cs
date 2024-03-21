@@ -24,7 +24,7 @@ namespace ExamenNicIan.Controllers
         {
             return View();
         }
-  
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(User user)
@@ -119,10 +119,10 @@ namespace ExamenNicIan.Controllers
             return View(user);
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit( User user)
+        public async Task<IActionResult> Edit(User user)
         {
             var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (!int.TryParse(userIdString, out int userId))
@@ -163,12 +163,37 @@ namespace ExamenNicIan.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        
+
 
         [HttpGet]
         public IActionResult Logout()
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
+        }
+        [HttpGet]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            var user = _userDbContext.Users
+                .FirstOrDefault(p => p.UserId == id);
+
+            return View(user);
+        }
+
+        [HttpPost("/[controller]/Delete/{id:int?}"), ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var user = _userDbContext.Users
+                .FirstOrDefault(p => p.UserId == id);
+
+            if (user is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            _userDbContext.Users.Remove(user);
+            _userDbContext.SaveChanges();
+
             return RedirectToAction("Index", "Home");
         }
 

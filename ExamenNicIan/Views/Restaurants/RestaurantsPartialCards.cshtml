@@ -4,7 +4,7 @@
     @{
         var images = new string[] { "r1.jpg", "r2.jpg", "r3.jpeg", "r4.jpg", "r5.jpeg", "r6.jpeg", "r7.jpeg", "r8.jpg", "r9.jpg", "r10.jpeg" };
         var random = new Random();
-        var imageIndex = random.Next(images.Length); 
+        var imageIndex = random.Next(images.Length);
     }
 
     <img src="~/Resources/@images[imageIndex]" class="card-img-top" alt="Restaurant image">
@@ -17,8 +17,11 @@
             <p><a href="@Model.tags.website">@Model.tags.website</a></p>
             <p>Opening hours: @Model.tags.opening_hours</p>
             <p>@Model.tags.description</p>
-            <button class="star-button">★</button>
+            <form asp-controller="Restaurants" asp-action="ToFavorites" method="post">
+                <input type="hidden" name="restaurantId" value="@Model.id" />
+                <input type="hidden" name="restaurantName" value="@Model.tags.name" />
+                <button class="star-button" type="submit">★</button>
+            </form>
         </div>
     </div>
 </div>
-

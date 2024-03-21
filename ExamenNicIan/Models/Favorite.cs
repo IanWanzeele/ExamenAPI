@@ -4,7 +4,7 @@
     {
         public int FavoriteID { get; set; }
         public int UserID { get; set; }
-        public int RestaurantID { get; set; }
+        public long RestaurantID { get; set; }
         public string RestaurantName { get; set; }
         public User User { get; set; }
     }
