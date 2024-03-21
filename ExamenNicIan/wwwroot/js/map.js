@@ -60,7 +60,7 @@ function fetchAndAddPOIs(latitude, longitude) {
                         position: [element.lon, element.lat],
                         htmlContent: `
                 <div style="position: relative; width: 20px; height: 20px;">
-                    <div style="position: absolute; bottom: 100%; color: blue; width: 100%; text-align: center;">
+                    <div style="position: absolute; bottom: 100%; color: #d60000; width: 100%; text-align: center;">
                         ${element.tags.name}
                     </div>
                     <button style="background-color: orange; width: 100%; height: 100%; border-radius: 50%; border: none;" onclick="displayRestaurantData('${element.tags.name || ''}', '${element.tags.addrstreet || ''}', '${element.tags.addrhousenumber || ''}', '${element.tags.cuisine || ''}', '${element.tags.phone || ''}', '${element.tags.website || ''}', '${element.tags.addrcity || ''}', '${element.tags.addrpostcode || ''}', '${element.tags.stars || ''}', '${element.tags.opening_hours || ''}', '${element.tags.description || ''}')"></button>
