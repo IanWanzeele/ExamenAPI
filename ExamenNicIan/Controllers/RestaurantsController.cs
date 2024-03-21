@@ -146,10 +146,12 @@ namespace ExamenNicIan.Controllers
             return View(favoriteRestaurants);
         }
 
-        public async Task<bool> IsFavorite(long restaurantId)
+        [HttpGet]
+        public async Task<JsonResult> IsFavorite(long restaurantId)
         {
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            return await _userDbContext.Favorites.AnyAsync(fr => fr.RestaurantID == restaurantId && fr.UserID == userId);
+            var isFavorite = await _userDbContext.Favorites.AnyAsync(fr => fr.RestaurantID == restaurantId && fr.UserID == userId);
+            return Json(isFavorite);
         }
 
         //public async Task<bool> IsFavorite(long restaurantId)
