@@ -31,16 +31,39 @@ namespace ExamenNicIan.Controllers
                 // Fetch restaurants based on obtained latitude and longitude
                 var restaurant = await _restaurantService.GetRestaurantsFromApi(latitude, longitude);
 
-                // Sort the elements
-                Array.Sort(restaurant.elements, (x, y) =>
+           
+            Array.Sort(restaurant.elements, (x, y) =>
+            {
+                int xCount = CountFilledProperties(x);
+                int yCount = CountFilledProperties(y);
+
+                
+                bool xHasEmptyAddress = string.IsNullOrEmpty(x.tags.addrstreet) || string.IsNullOrEmpty(x.tags.addrcity) || string.IsNullOrEmpty(x.tags.addrpostcode);
+                bool yHasEmptyAddress = string.IsNullOrEmpty(y.tags.addrstreet) || string.IsNullOrEmpty(y.tags.addrcity) || string.IsNullOrEmpty(y.tags.addrpostcode);
+
+                
+                if (xHasEmptyAddress && yHasEmptyAddress)
                 {
-                    int xCount = CountFilledProperties(x);
-                    int yCount = CountFilledProperties(y);
+                    return 0;
+                }
+              
+                else if (xHasEmptyAddress)
+                {
+                    return 1;
+                }
+             
+                else if (yHasEmptyAddress)
+                {
+                    return -1;
+                }
+           
+                else
+                {
+                    return yCount.CompareTo(xCount); 
+                }
+            });
 
-                    return yCount.CompareTo(xCount); // Sort in descending order
-                });
-
-                return View(restaurant);
+            return View(restaurant);
             }
 
             private int CountFilledProperties(Element element)
@@ -50,7 +73,11 @@ namespace ExamenNicIan.Controllers
                 if (!string.IsNullOrEmpty(element.tags.name)) count++;
                 if (!string.IsNullOrEmpty(element.tags.addrstreet)) count++;
                 if (!string.IsNullOrEmpty(element.tags.addrhousenumber)) count++;
-                // Add more checks for other properties...
+                if (!string.IsNullOrEmpty(element.tags.cuisine)) count++;
+                if (!string.IsNullOrEmpty(element.tags.phone)) count++;
+                if (!string.IsNullOrEmpty(element.tags.website)) count++;
+                if (!string.IsNullOrEmpty(element.tags.addrcity)) count++;
+                if (!string.IsNullOrEmpty(element.tags.addrpostcode)) count++;
 
                 return count;
             }

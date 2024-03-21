@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit account";
 }
 
-<h1>@ViewBag.Title</h1>
+
 <form asp-action="Edit"method="post">
     <input type="hidden" asp-for="UserId" />
     <partial name="RegisterEditPartial" model="Model"/>
