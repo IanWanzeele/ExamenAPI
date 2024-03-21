@@ -40,9 +40,9 @@ namespace ExamenNicIan.Controllers
 
                 // Save the user to the database
                 await _userService.Register(user);
+                var loginModel = new Login { Email = user.Email, Password = user.Password };
+                return await Login(loginModel);
 
-                // Redirect to login page or dashboard
-                return RedirectToAction("Login");
             }
 
             return View(user);

@@ -154,18 +154,6 @@ namespace ExamenNicIan.Controllers
             return Json(isFavorite);
         }
 
-        //public async Task<bool> IsFavorite(long restaurantId)
-        //{
-        //    if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int userId))
-        //    {
-        //        return false;
-        //    }
-
-        //    var isFavorite = await _userDbContext.Favorites
-        //        .AnyAsync(fr => fr.RestaurantID == restaurantId &&
-        //                        fr.UserID == userId);
-        //    return isFavorite;
-        //}
     }
 
 }
