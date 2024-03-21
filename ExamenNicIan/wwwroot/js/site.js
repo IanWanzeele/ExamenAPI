@@ -1,4 +1,13 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿$(document).ready(function () {
+    $('.star-button').each(function () {
+        var button = $(this);
+        var restaurantId = button.data('restaurant-id');
+        $.get('/Restaurants/IsFavorite?restaurantId=' + restaurantId, function (isFavorite) {
+            if (isFavorite) {
+                button.addClass('favorite');
+            } else {
+                button.removeClass('favorite');
+            }
+        });
+    });
+});
