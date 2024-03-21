@@ -171,29 +171,32 @@ namespace ExamenNicIan.Controllers
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
         }
-        [HttpGet]
-        public IActionResult Delete([FromRoute] int id)
-        {
-            var user = _userDbContext.Users
-                .FirstOrDefault(p => p.UserId == id);
 
-            return View(user);
-        }
 
-        [HttpPost("/[controller]/Delete/{id:int?}"), ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(int id)
+        [HttpPost("/[controller]/Delete"), ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed()
         {
-            var user = _userDbContext.Users
-                .FirstOrDefault(p => p.UserId == id);
+            // Get the currently logged-in user's ID
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            // Find the user by ID
+            var user = await _userDbContext.Users.FindAsync(userId);
+
 
             if (user is null)
             {
+                // If the user is not found, redirect to the home page
                 return RedirectToAction("Index", "Home");
             }
+            var favoritesToRemove = _userDbContext.Favorites.Where(f => f.UserID == userId);
+            _userDbContext.Favorites.RemoveRange(favoritesToRemove);
 
+            // Remove the user
             _userDbContext.Users.Remove(user);
-            _userDbContext.SaveChanges();
+            await _userDbContext.SaveChangesAsync();
+            HttpContext.SignOutAsync();
 
+            // Redirect to the home page
             return RedirectToAction("Index", "Home");
         }
 
