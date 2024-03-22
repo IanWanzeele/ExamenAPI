@@ -64,7 +64,16 @@ function fetchAndAddPOIs(latitude, longitude) {
                     var point = new atlas.data.Point([element.lon, element.lat]);
                     var feature = new atlas.data.Feature(point, {
                         name: element.tags.name,
-                        // Add other properties as needed
+                        addrstreet: element.tags.addrstreet,
+                        addrhousenumber: element.tags.addrhousenumber,
+                        cuisine: element.tags.cuisine,
+                        phone: element.tags.phone,
+                        website: element.tags.website,
+                        addrcity: element.tags.addrcity,
+                        addrpostcode: element.tags.addrpostcode,
+                        stars: element.tags.stars,
+                        opening_hours: element.tags.opening_hours,
+                        description: element.tags.description
                     });
                     dataSource.add(feature);
                 }
@@ -77,14 +86,25 @@ function fetchAndAddPOIs(latitude, longitude) {
                 },
                 textOptions: {
                     textField: ['get', 'name'], // Display the name of the restaurant
-                    offset: [0, 1.2] // Adjust the offset as needed
+                    offset: [0, 1.2], // Adjust the offset as needed
+                    color: 'red' // Set the text color to red
                 }
             }));
+
+            // Add a click event to the map
+            map.events.add('click', function (e) {
+                // Check if the user clicked on a point
+                if (e.shapes && e.shapes.length > 0 && e.shapes[0] instanceof atlas.Shape) {
+                    var properties = e.shapes[0].getProperties();
+                    displayRestaurantData(properties.name, properties.addrstreet, properties.addrhousenumber, properties.cuisine, properties.phone, properties.website, properties.addrcity, properties.addrpostcode, properties.stars, properties.opening_hours, properties.description);
+                }
+            });
         })
         .catch(error => {
             console.error('Error fetching POIs:', error);
         });
 }
+
 function displayRestaurantData(name, addrstreet, addrhousenumber, cuisine, phone, website, addrcity, addrpostcode, stars, opening_hours, description) {
     var restaurantDataElement = document.getElementById('restaurantData');
     // Clear the existing restaurant data
