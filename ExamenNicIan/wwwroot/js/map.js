@@ -23,7 +23,7 @@ function initializeMap(latitude, longitude) {
     var zoomLevel = latitude === 50.5503 && longitude === 4.3517 ? 7 : 11;
     map = new atlas.Map("myMap", {
         center: [longitude, latitude], // Center the map on the specified location
-        zoom: zoomLevel,
+        zoom: zoomLevel, 
         view: 'Auto',
         authOptions: {
             authType: 'subscriptionKey',
@@ -56,24 +56,30 @@ function fetchAndAddPOIs(latitude, longitude) {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
+            var dataSource = new atlas.source.DataSource();
+            map.sources.add(dataSource);
+
             data.elements.forEach(element => {
                 if (element.tags && element.tags.name) {
-                    var marker = new atlas.HtmlMarker({
-                        position: [element.lon, element.lat],
-                        htmlContent: `
-                <div style="position: relative; width: 20px; height: 20px;">
-                    <div style="position: absolute; bottom: 100%; color: #d60000; width: 100%; text-align: center;">
-                        ${element.tags.name}
-                    </div>
-                    <button style="background-color: orange; width: 100%; height: 100%; border-radius: 50%; border: none;" onclick="displayRestaurantData('${element.tags.name || ''}', '${element.tags.addrstreet || ''}', '${element.tags.addrhousenumber || ''}', '${element.tags.cuisine || ''}', '${element.tags.phone || ''}', '${element.tags.website || ''}', '${element.tags.addrcity || ''}', '${element.tags.addrpostcode || ''}', '${element.tags.stars || ''}', '${element.tags.opening_hours || ''}', '${element.tags.description || ''}')"></button>
-                </div>`,
-                        anchor: 'center'
+                    var point = new atlas.data.Point([element.lon, element.lat]);
+                    var feature = new atlas.data.Feature(point, {
+                        name: element.tags.name,
+                        // Add other properties as needed
                     });
-                    map.markers.add(marker);
-                    console.log(`Name: ${element.tags.name}, Street: ${element.tags.addrstreet}, House Number: ${element.tags.addrhousenumber}`);
-
+                    dataSource.add(feature);
                 }
             });
+
+            map.layers.add(new atlas.layer.SymbolLayer(dataSource, null, {
+                iconOptions: {
+                    image: 'pin-round-orange', // Use an orange pin icon
+                    size: 0.5 // Adjust the size as needed
+                },
+                textOptions: {
+                    textField: ['get', 'name'], // Display the name of the restaurant
+                    offset: [0, 1.2] // Adjust the offset as needed
+                }
+            }));
         })
         .catch(error => {
             console.error('Error fetching POIs:', error);
