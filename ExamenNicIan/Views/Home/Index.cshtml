@@ -2,24 +2,13 @@
     ViewData["Title"] = "Home Page";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/css/site.css" />
-   
-</head>
-<body>
+
 <div class="left-stripe"></div>
 <div class="right-stripe"></div>
 
 <div class="logo-container">
     <img src="Resources/logo.png" alt="Logo"> 
 </div>
-</body>
-
 <!-- Zoekbalk en knop -->
 <div class="search-container">
     <form id="searchForm" asp-controller="Restaurants" asp-action="Search" method="post">
@@ -35,8 +24,5 @@
     <p>Just type in the area code of your choice and find new spots to eat.</p>
     <p>You can add food-locations you like to your favorites to easier access them later.</p>
     <p>So start browsing and fix that craving!</p>
-
 </div>
 
-    
-</html>

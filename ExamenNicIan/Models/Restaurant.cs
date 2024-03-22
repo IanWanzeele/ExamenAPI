@@ -24,6 +24,7 @@ namespace ExamenNicIan.Models
         public float lat { get; set; }
         public float lon { get; set; }
         public Tags tags { get; set; }
+        
     }
 
     public class Tags

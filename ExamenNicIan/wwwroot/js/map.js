@@ -82,20 +82,35 @@ function fetchAndAddPOIs(latitude, longitude) {
                 }
             });
 
-            map.layers.add(new atlas.layer.SymbolLayer(dataSource, null, {             
+            map.layers.add(new atlas.layer.SymbolLayer(dataSource, null, {
                 textOptions: {
                     textField: ['get', 'name'], // Display the name of the restaurant
                     offset: [0, 1.2], // Adjust the offset as needed
                     color: 'red' // Set the text color to red
                 }
             }));
+            var symbols = document.querySelectorAll('.atlas-map svg image');
+            symbols.forEach(function (symbol) {
+                symbol.style.cursor = 'pointer';
+            });
+
 
             // Add a click event to the map
             map.events.add('click', function (e) {
                 // Check if the user clicked on a point
                 if (e.shapes && e.shapes.length > 0 && e.shapes[0] instanceof atlas.Shape) {
                     var properties = e.shapes[0].getProperties();
-                    displayRestaurantData(properties.name, properties.addrstreet, properties.addrhousenumber, properties.cuisine, properties.phone, properties.website, properties.addrcity, properties.addrpostcode, properties.stars, properties.opening_hours, properties.description);
+                    displayRestaurantData(properties.name,
+                        properties.addrstreet,
+                        properties.addrhousenumber,
+                        properties.cuisine,
+                        properties.phone,
+                        properties.website,
+                        properties.addrcity,
+                        properties.addrpostcode,
+                        properties.stars,
+                        properties.opening_hours,
+                        properties.description);
                 }
             });
         })

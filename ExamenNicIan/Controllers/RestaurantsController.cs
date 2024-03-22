@@ -26,6 +26,10 @@ namespace ExamenNicIan.Controllers
         [HttpPost]
         public async Task<ActionResult> Search(string query)
         {
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var (latitude, longitude) = await _geoCodingService.GeoLocation(query);
 
             if (latitude == 0 && longitude == 0)
@@ -103,15 +107,16 @@ namespace ExamenNicIan.Controllers
             {
                 _userDbContext.Favorites.Remove((existingFavorite));
                 await _userDbContext.SaveChangesAsync();
+                
                 return RedirectToAction("Favorites");
             }
             else
             {
-                var favorite = new Favorite
+                var favorite = new Favorite()
                 {
                     UserID = userId,
                     RestaurantID = restaurantId,
-                    RestaurantName = restaurantName
+                    RestaurantName = restaurantName,
                 };
 
                 _userDbContext.Favorites.Add(favorite);

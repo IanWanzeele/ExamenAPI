@@ -7,5 +7,6 @@
         public long RestaurantID { get; set; }
         public string RestaurantName { get; set; }
         public User User { get; set; }
+        
     }
 }

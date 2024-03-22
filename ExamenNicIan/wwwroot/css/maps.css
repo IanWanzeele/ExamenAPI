@@ -26,3 +26,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.atlas-map svg image:hover {
+    cursor: pointer !important;
+}
