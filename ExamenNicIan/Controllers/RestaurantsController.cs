@@ -129,21 +129,28 @@ namespace ExamenNicIan.Controllers
                 .Select(fr => fr.RestaurantID)
                 .ToListAsync();
 
-            var favoriteRestaurants = new Restaurant
+            if (favoriteRestaurantIds.Any())
             {
-                elements = new Element[favoriteRestaurantIds.Count]
-            };
-            for (int i = 0; i < favoriteRestaurantIds.Count; i++)
-            {
-                var restaurantId = favoriteRestaurantIds[i];
-                var restaurant = await _restaurantService.GetRestaurantById(restaurantId);
-                if (restaurant != null)
+                var favoriteRestaurants = new Restaurant
                 {
-                    favoriteRestaurants.elements[i] = restaurant.elements.FirstOrDefault();
+                    elements = new Element[favoriteRestaurantIds.Count]
+                };
+                for (int i = 0; i < favoriteRestaurantIds.Count; i++)
+                {
+                    var restaurantId = favoriteRestaurantIds[i];
+                    var restaurant = await _restaurantService.GetRestaurantById(restaurantId);
+                    if (restaurant != null)
+                    {
+                        favoriteRestaurants.elements[i] = restaurant.elements.FirstOrDefault();
+                    }
                 }
-            }
 
-            return View(favoriteRestaurants);
+                return View(favoriteRestaurants);
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpGet]

@@ -4,9 +4,10 @@
 <div class="right-stripe"></div>
 
 <div class="form-container">
+    <h1 class="text-dark stylish-p-text">Register</h1>
     <form asp-action="Register" method="post">
         <div asp-validation-summary="All" class="text-danger"></div>
-        <partial name="RegisterEditPartial" model="Model" />
+        <partial name="RegisterEditPartial" model="Model"/>
 
         <button type="submit" class="btn btn-primary">Register</button>
     </form>

@@ -61,7 +61,7 @@
                 var action = ViewContext.RouteData.Values["Action"].ToString();
             }
 
-            @if ((controller == "Map" && action == "Index") || (controller == "Restaurants" && action == "Search") || controller == "User")
+            @if ((controller == "Map" && action == "Index") || (controller == "Restaurants" /* && action == "Search" */) || controller == "User")
             {
                 <div class="logo-container-wrapper">
                     <div class="logo-container-favorites">

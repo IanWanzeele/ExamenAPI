@@ -104,12 +104,19 @@ body {
     color: #d60000 !important;
     margin-top: 40px;
     margin-left: 21px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
 }
+
 
 .logo-container-favorites {
     position: absolute;
     top: 10px;
     right: 10px;
+    
 }
 
 .restaurant-list {
@@ -250,5 +257,14 @@ body {
 .star-button:active {
     animation: clickStar 0.3s;
 }
-
-
+#deleteButton {
+    margin-top: 10px;
+}
+.page-title {
+    color: #d60000;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 3em;
+    margin-left: 32px; 
+}
