@@ -50,6 +50,9 @@ function initializeMap(latitude, longitude) {
 }
 
 function fetchAndAddPOIs(latitude, longitude) {
+    if (latitude === 50.5503 && longitude === 4.3517) {
+        return; 
+    }
     var radius = 10000; // Radius in meters
     var apiUrl = `https://overpass-api.de/api/interpreter?data=[out:json];node["amenity"="restaurant"](around:${radius},${latitude},${longitude});out;`;
 
