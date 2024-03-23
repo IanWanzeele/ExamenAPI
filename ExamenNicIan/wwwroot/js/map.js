@@ -1,4 +1,4 @@
-﻿var map; // Define map variable in the outer scope
+﻿var map;
 
 function GetMap() {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -13,7 +13,7 @@ function GetMap() {
         var belgiumLatitude = 50.5503;
         var belgiumLongitude = 4.3517;
 
-        // Initialize the map centered on Belgium
+        // Centreer de kaart op Belgie als location niet aanstaat
         initializeMap(belgiumLatitude, belgiumLongitude);
         
     });
@@ -22,7 +22,7 @@ function GetMap() {
 function initializeMap(latitude, longitude) {
     var zoomLevel = latitude === 50.5503 && longitude === 4.3517 ? 7 : 11;
     map = new atlas.Map("myMap", {
-        center: [longitude, latitude], // Center the map on the specified location
+        center: [longitude, latitude],
         zoom: zoomLevel, 
         view: 'Auto',
         authOptions: {
@@ -32,15 +32,15 @@ function initializeMap(latitude, longitude) {
         
     });
 
-    // Wait for the map to be ready
+    
     map.events.add('ready', function () {
-        // Remove hidden elements
+        // Verwijder hidden data
         var hiddenElements = document.querySelectorAll('.hidden-accessible-element');
         hiddenElements.forEach(function (element) {
             element.parentNode.removeChild(element);
         });
 
-        // Remove atlas-control-container element
+        // Verwijder atlas-control-container element
         var controlContainer = document.querySelector('.atlas-control-container');
         if (controlContainer) {
             controlContainer.parentNode.removeChild(controlContainer);
@@ -53,7 +53,7 @@ function fetchAndAddPOIs(latitude, longitude) {
     if (latitude === 50.5503 && longitude === 4.3517) {
         return; 
     }
-    var radius = 10000; // Radius in meters
+    var radius = 10000; // In meters
     var apiUrl = `https://overpass-api.de/api/interpreter?data=[out:json];node["amenity"="restaurant"](around:${radius},${latitude},${longitude});out;`;
 
     fetch(apiUrl)
@@ -82,11 +82,12 @@ function fetchAndAddPOIs(latitude, longitude) {
                 }
             });
 
+            //Toevoegen van POI's aan de kaart
             map.layers.add(new atlas.layer.SymbolLayer(dataSource, null, {
                 textOptions: {
-                    textField: ['get', 'name'], // Display the name of the restaurant
-                    offset: [0, 1.2], // Adjust the offset as needed
-                    color: 'red' // Set the text color to red
+                    textField: ['get', 'name'], 
+                    offset: [0, 1.2], 
+                    color: 'red' 
                 }
             }));
             var symbols = document.querySelectorAll('.atlas-map svg image');
@@ -95,9 +96,9 @@ function fetchAndAddPOIs(latitude, longitude) {
             });
 
 
-            // Add a click event to the map
+            // Klikevent voor de map
             map.events.add('click', function (e) {
-                // Check if the user clicked on a point
+               
                 if (e.shapes && e.shapes.length > 0 && e.shapes[0] instanceof atlas.Shape) {
                     var properties = e.shapes[0].getProperties();
                     displayRestaurantData(properties.name,
@@ -121,9 +122,9 @@ function fetchAndAddPOIs(latitude, longitude) {
 
 function displayRestaurantData(name, addrstreet, addrhousenumber, cuisine, phone, website, addrcity, addrpostcode, stars, opening_hours, description) {
     var restaurantDataElement = document.getElementById('restaurantData');
-    // Clear the existing restaurant data
+    // Verwijder restaurant data
     restaurantDataElement.innerHTML = '';
-    // Add the new restaurant data
+    // Voeg restaurant data opnieuw toe
     restaurantDataElement.innerHTML = `
         <h2>${name}</h2>
         <p>${addrstreet} ${addrhousenumber}</p>

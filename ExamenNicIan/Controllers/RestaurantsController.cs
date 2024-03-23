@@ -37,10 +37,10 @@ namespace ExamenNicIan.Controllers
                 return View("Error");
             }
 
-            // Fetch restaurants based on obtained latitude and longitude
+            // API Call naar restaurantservice
             var restaurant = await _restaurantService.GetRestaurantsFromApi(latitude, longitude);
 
-
+            // Sorteren van de restaurants op basis van aantal ingevulde velden
             Array.Sort(restaurant.elements, (x, y) =>
             {
                 int xCount = CountFilledProperties(x);

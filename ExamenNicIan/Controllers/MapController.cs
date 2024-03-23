@@ -21,13 +21,13 @@ namespace ExamenNicIan.Controllers
         [HttpGet, HttpPost]
         public async Task<IActionResult> Fetch([FromBody] Location model)
         {
-            // Make API call to retrieve restaurant data based on latitude and longitude
+            // Api Call om de restaurants op te halen voor map
             var restaurants = await _restaurantService.GetRestaurantsFromApi(model.Latitude, model.Longitude);
 
             ViewBag.Restaurants = restaurants;
 
 
-            // Pass the list of restaurants to the view
+            
             return View("Index");
         }
     }

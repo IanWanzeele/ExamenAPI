@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - ExamenNicIan</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/maps.css" type="text/css" />
 
 </head>
 <body>
@@ -28,10 +29,10 @@
                         @{
                             if (User.Identity.IsAuthenticated)
                             {
-                                // If the user is authenticated, render the dropdown menu with the logged-in profile's name
+                                // Indien user is ingelogd, toon de dropdown menu
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle text-dark stylish-nav-text" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                        @User.Identity.Name <!-- Display the name of the logged-in user -->
+                                        @User.Identity.Name 
                                     </a>
                                     <ul class="dropdown-menu text-start" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" asp-controller="User" asp-action="Edit">Edit profile</a></li>
@@ -43,7 +44,7 @@
                             }
                             else
                             {
-                                // If the user is not authenticated, render the Register and Login links
+                                // Indien user niet is ingelogd, toon de Register en Login knop
                                 <li class="nav-item">
                                     <a class="nav-link text-dark stylish-nav-text" asp-area="" asp-controller="User" asp-action="Register">Register</a>
                                 </li>
@@ -61,7 +62,7 @@
                 var action = ViewContext.RouteData.Values["Action"].ToString();
             }
 
-            @if ((controller == "Map" && action == "Index") || (controller == "Restaurants" /* && action == "Search" */) || controller == "User")
+            @if ((controller == "Map" && action == "Index") || (controller == "Restaurants") || controller == "User")
             {
                 <div class="logo-container-wrapper">
                     <div class="logo-container-favorites">
@@ -84,12 +85,13 @@
     </div>
 </footer>
     @await RenderSectionAsync("Modals", required: false)
+    <script src="~/js/map.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

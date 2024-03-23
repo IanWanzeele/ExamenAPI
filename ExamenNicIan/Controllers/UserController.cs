@@ -31,14 +31,14 @@ namespace ExamenNicIan.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Check if email is already registered
+                // Controleren of email reeds bestaat
                 if (await _userService.GetUser(user.Email) != null)
                 {
                     ModelState.AddModelError("Email", "Email is already registered.");
                     return View(user);
                 }
 
-                // Save the user to the database
+                // Opslaan van user
                 await _userService.Register(user);
                 var loginModel = new Login { Email = user.Email, Password = user.Password };
                 return await Login(loginModel);
@@ -61,24 +61,23 @@ namespace ExamenNicIan.Controllers
                 var user = await _userService.Login(model);
                 if (user != null)
                 {
-                    // Create claims for the authenticated user
+                    
                     var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name, user.FirstName), // Assuming user.Email contains the email
+                        new Claim(ClaimTypes.Name, user.FirstName), 
                         new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                     };
 
-                    // Create identity for the user
+                    
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                    // Create authentication properties
                     var authProperties = new AuthenticationProperties
                     {
-                        // You can configure various properties here
-                        IsPersistent = false, // Make the authentication persistent
+                        
+                        IsPersistent = false, // Indien op true blijf je altijd aangemeld
                     };
 
-                    // Sign in the user
+                    // Aanmelden van de user
                     await HttpContext.SignInAsync(
                         CookieAuthenticationDefaults.AuthenticationScheme,
                         new ClaimsPrincipal(claimsIdentity),
@@ -101,21 +100,18 @@ namespace ExamenNicIan.Controllers
             var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (!int.TryParse(userIdString, out int userId))
             {
-                // Handle the case where the user ID cannot be parsed to an integer
-                // For example, redirect to the home page or display an error message
+             
                 return RedirectToAction("Index", "Home");
             }
 
-            // Retrieve the user from the database based on the ID
             var user = _userDbContext.Users.FirstOrDefault(u => u.UserId == userId);
 
             if (user == null)
             {
-                // If the user is not found, redirect to the home page or display an error message
+            
                 return RedirectToAction("Index", "Home");
             }
 
-            // Pass the user object to the view for editing
             return View(user);
         }
 
@@ -127,8 +123,6 @@ namespace ExamenNicIan.Controllers
             var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (!int.TryParse(userIdString, out int userId))
             {
-                // Handle the case where the user ID cannot be parsed to an integer
-                // For example, redirect to the home page or display an error message
                 return RedirectToAction("Index", "Home");
             }
             var dbUser = _userDbContext.Users.FirstOrDefault(u => u.UserId == userId);
@@ -142,7 +136,7 @@ namespace ExamenNicIan.Controllers
             dbUser.FirstName = user.FirstName;
             dbUser.LastName = user.LastName;
             dbUser.Email = user.Email;
-            // Add other properties as needed
+         
 
             _userDbContext.SaveChanges();
             var identity = (ClaimsIdentity)User.Identity;
@@ -155,7 +149,7 @@ namespace ExamenNicIan.Controllers
 
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            // Sign the user back in with updated claims
+      
             var newIdentity = new ClaimsIdentity(identity.Claims, identity.AuthenticationType);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(newIdentity));
 
@@ -176,27 +170,27 @@ namespace ExamenNicIan.Controllers
         [HttpPost("/[controller]/Delete"), ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed()
         {
-            // Get the currently logged-in user's ID
+        
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-            // Find the user by ID
+        
             var user = await _userDbContext.Users.FindAsync(userId);
 
 
             if (user is null)
             {
-                // If the user is not found, redirect to the home page
+           
                 return RedirectToAction("Index", "Home");
             }
             var favoritesToRemove = _userDbContext.Favorites.Where(f => f.UserID == userId);
             _userDbContext.Favorites.RemoveRange(favoritesToRemove);
 
-            // Remove the user
+            // Verwijder de gebruiker
             _userDbContext.Users.Remove(user);
             await _userDbContext.SaveChangesAsync();
             HttpContext.SignOutAsync();
 
-            // Redirect to the home page
+            // Redirect naar home
             return RedirectToAction("Index", "Home");
         }
 

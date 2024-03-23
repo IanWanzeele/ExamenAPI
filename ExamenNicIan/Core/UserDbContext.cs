@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExamenNicIan.Core
 {
+    //kijkt als email adres uniek is
     public class UserDbContext(DbContextOptions<UserDbContext> options) : DbContext(options)
     {
         public DbSet<User> Users { get; set; }

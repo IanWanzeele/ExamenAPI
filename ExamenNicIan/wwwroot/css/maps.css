@@ -14,7 +14,7 @@ body {
 #myMap {
     flex: 2;
     border: 5px solid #d60000;
-    overflow: hidden; /* Add this */
+    overflow: hidden; 
 }
 
 #MapCSS {

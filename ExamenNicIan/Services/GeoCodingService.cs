@@ -17,7 +17,7 @@ namespace ExamenNicIan.Services
 
         public async Task<(double latitude, double longitude)> GeoLocation(string userInput)
         {
-            // Construct the URL for the geocoding API request
+            // Postcode en gemeente omzetten naar coordinaten en terugsturen
 
             string url = $"https://atlas.microsoft.com/search/address/json?query={userInput}&countrySet=BE&api-version=1.0&subscription-key=lG1hIRQvycC8mByD5fl2Rx-fJdneXcDeUTCfOa9aKnc";
 

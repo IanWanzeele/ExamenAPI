@@ -1,16 +1,11 @@
 ﻿@model IEnumerable<ExamenNicIan.Models.Restaurant>
 @{
     ViewBag.Title = "Map Search";
-    var restaurants = ViewBag.Restaurants as Restaurant;
+    
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Map Search</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="~/css/maps.css" type="text/css" />
-</head>
+  
+
 <div class="left-stripe"></div>
 <div class="right-stripe"></div>
 <body onload="GetMap()">
@@ -18,15 +13,7 @@
     <div id="myMap"></div>
 <div id="MapCSS">
     <div id="restaurantData">
-        
-
     </div>
 </div>
     </div>
-
-
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
-    <script src="~/js/map.js"></script>
-
 </body>
-</html>
