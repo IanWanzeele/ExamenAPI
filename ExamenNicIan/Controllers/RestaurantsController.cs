@@ -30,42 +30,37 @@ namespace ExamenNicIan.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+
             var (latitude, longitude) = await _geoCodingService.GeoLocation(query);
 
             if (latitude == 0 && longitude == 0)
             {
-                return View("Error");
+                return View();
             }
 
-            // API Call naar restaurantservice
+            // Fetch restaurants based on obtained latitude and longitude
             var restaurant = await _restaurantService.GetRestaurantsFromApi(latitude, longitude);
 
-            // Sorteren van de restaurants op basis van aantal ingevulde velden
             Array.Sort(restaurant.elements, (x, y) =>
             {
                 int xCount = CountFilledProperties(x);
                 int yCount = CountFilledProperties(y);
 
-
                 bool xHasEmptyAddress = string.IsNullOrEmpty(x.tags.addrstreet) || string.IsNullOrEmpty(x.tags.addrcity) || string.IsNullOrEmpty(x.tags.addrpostcode);
                 bool yHasEmptyAddress = string.IsNullOrEmpty(y.tags.addrstreet) || string.IsNullOrEmpty(y.tags.addrcity) || string.IsNullOrEmpty(y.tags.addrpostcode);
-
 
                 if (xHasEmptyAddress && yHasEmptyAddress)
                 {
                     return 0;
                 }
-
                 else if (xHasEmptyAddress)
                 {
                     return 1;
                 }
-
                 else if (yHasEmptyAddress)
                 {
                     return -1;
                 }
-
                 else
                 {
                     return yCount.CompareTo(xCount);
@@ -73,6 +68,7 @@ namespace ExamenNicIan.Controllers
             });
 
             return View(restaurant);
+
         }
 
         private int CountFilledProperties(Element element)
